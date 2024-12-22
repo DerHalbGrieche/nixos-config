@@ -13,6 +13,9 @@
     # inputs.nix-colors.homeManagerModule
     ./cli/git.nix
     ./cli/pass.nix
+    ./cli/gpg.nix
+    ./cli/nix-index.nix
+    ./programs/firefox.nix
     # You can also split up your configuration and import pieces of it here:
     # ./nvim.nix
   ];
@@ -47,7 +50,7 @@
   # Add stuff for your user as you see fit:
   # programs.neovim.enable = true;
   # home.packages = with pkgs; [ steam ];
-  home.packages = with pkgs; [ vesktop ];
+  home.packages = with pkgs; [ vesktop comma nil ];
   services.arrpc.enable = true;
   # Enable home-manager and git
   programs.home-manager.enable = true;

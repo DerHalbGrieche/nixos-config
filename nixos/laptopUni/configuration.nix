@@ -100,6 +100,7 @@
   services.displayManager.autoLogin.user = "vasilis";
 
   # Install firefox.
+  programs.nix-ld.enable = true;
   programs.firefox.enable = true;
 
   # Allow unfree packages
