@@ -13,6 +13,7 @@
         "files.autoSave" = "onFocusChange";
         "workbench.colorTheme" = "Default High Contrast";
         "nix.enableLanguageServer" = true;
+        "git.autofetch"= true;
     };
   };
 }
