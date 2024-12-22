@@ -16,6 +16,7 @@
     ./cli/gpg.nix
     ./cli/nix-index.nix
     ./programs/firefox.nix
+    ./programs/vscode.nix
     # You can also split up your configuration and import pieces of it here:
     # ./nvim.nix
   ];

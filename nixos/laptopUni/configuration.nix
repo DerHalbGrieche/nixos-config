@@ -114,7 +114,6 @@
      vim
      wget
      curl
-     vscodium
      direnv
      git
      home-manager
