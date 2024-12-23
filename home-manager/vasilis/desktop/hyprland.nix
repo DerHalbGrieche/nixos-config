@@ -18,9 +18,8 @@
       };
     };
   };
-  programs.wofi.enable = true;
   services.cliphist.enable = true;
-  
+  home.packages = with pkgs; [ rofi-wayland hyprcursor ];
    wayland.windowManager.hyprland = {
     enable = true;
     # set the flake package
@@ -37,7 +36,7 @@
       };
       windowrulev2 = [ "workspace 3, class:vesktop" ];
       "$mod" = "SUPER";
-      "exec-once" = "waybar & wl-clipboard & vesktop";
+      "exec-once" = "waybar & wl-clipboard & vesktop & hyprctl setcursor macOS 24";
       input = {
         "kb_layout" = "us";
         "kb_variant" = "colemak";
@@ -45,7 +44,7 @@
       bind = [
         "$mod, T, exec, alacritty" 
         "$mod&Shift, M, exit"
-        "$mod, Space, exec, wofi --show drun"
+        "$mod, Space, exec, rofi -show drun"
         "$mod, Q, killactive"
         "$mod, F, exec, firefox"
         ]
