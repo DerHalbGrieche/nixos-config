@@ -8,6 +8,7 @@
   imports =
     [ # Include the results of the hardware scan.
       ./hardware-configuration.nix
+      ./hyprland.nix
     ];
 
   # Bootloader.
@@ -96,8 +97,8 @@
   };
 
   # Enable automatic login for the user.
-  services.displayManager.autoLogin.enable = true;
-  services.displayManager.autoLogin.user = "vasilis";
+  # services.displayManager.autoLogin.enable = true;
+  # services.displayManager.autoLogin.user = "vasilis";
 
   # Install firefox.
   programs.nix-ld.enable = true;
