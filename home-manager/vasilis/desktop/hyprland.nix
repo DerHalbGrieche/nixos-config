@@ -19,7 +19,12 @@
     };
   };
   services.cliphist.enable = true;
-  home.packages = with pkgs; [ rofi-wayland hyprcursor ];
+  programs.rofi = {
+    enable = true;
+    package = pkgs.rofi-wayland;
+    theme = "material";
+  };
+  home.packages = with pkgs; [ hyprcursor ];
    wayland.windowManager.hyprland = {
     enable = true;
     # set the flake package
@@ -36,7 +41,7 @@
       };
       windowrulev2 = [ "workspace 3, class:vesktop" ];
       "$mod" = "SUPER";
-      "exec-once" = "waybar & wl-clipboard & vesktop & hyprctl setcursor macOS 24";
+      "exec-once" = [ "waybar" "wl-clipboard" "vesktop" "hyprctl setcursor macOS 24" ];
       input = {
         "kb_layout" = "us";
         "kb_variant" = "colemak";
