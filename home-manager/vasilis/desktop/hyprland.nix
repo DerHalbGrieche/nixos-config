@@ -20,6 +20,7 @@
   };
   programs.wofi.enable = true;
   services.cliphist.enable = true;
+  
    wayland.windowManager.hyprland = {
     enable = true;
     # set the flake package

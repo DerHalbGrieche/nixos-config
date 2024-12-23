@@ -18,6 +18,7 @@
     ./gui/firefox.nix
     ./gui/vscode.nix
     ./desktop/hyprland.nix
+    ./desktop/gtk.nix
     # You can also split up your configuration and import pieces of it here:
     # ./nvim.nix
   ];
