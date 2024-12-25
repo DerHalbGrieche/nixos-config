@@ -18,5 +18,10 @@
       name = "Materia-dark";
       package = pkgs.materia-theme;
     };
+    font = {
+      name = "Fira Code";
+      package = pkgs.fira-code;
+      size = 10;
+    };
   };
 }

@@ -3,28 +3,16 @@
   inputs,
   ...
 }: {
-  programs.waybar = {
-    enable = true;
-    settings = {
-      primary = {
-        layer = "top";
-        modules-left = [ "hyprland/workspaces" ];
-        modules-right = [ "cpu" "memory" "tray" "battery" ];
-
-        "backlight/slider" = {
-          min = 10;
-          
-        };
-      };
-    };
-  };
+  imports = [
+    ./waybar.nix
+  ];
   services.cliphist.enable = true;
   programs.rofi = {
     enable = true;
     package = pkgs.rofi-wayland;
     theme = "material";
   };
-  home.packages = with pkgs; [ hyprcursor ];
+  home.packages = with pkgs; [ hyprcursor emote hyprshot hyprpolkitagent networkmanagerapplet ];
    wayland.windowManager.hyprland = {
     enable = true;
     # set the flake package
@@ -41,7 +29,13 @@
       };
       windowrulev2 = [ "workspace 3, class:vesktop" ];
       "$mod" = "SUPER";
-      "exec-once" = [ "waybar" "wl-clipboard" "vesktop" "hyprctl setcursor macOS 24" ];
+      "exec-once" = [ 
+        "waybar" 
+        "wl-clipboard" 
+        "vesktop --ozone-platform=wayland" 
+        "hyprctl setcursor macOS 24" 
+        "exec-once = systemctl --user start hyprpolkitagent"
+        ];
       input = {
         "kb_layout" = "us";
         "kb_variant" = "colemak";
@@ -52,6 +46,8 @@
         "$mod, Space, exec, rofi -show drun"
         "$mod, Q, killactive"
         "$mod, F, exec, firefox"
+        "$mod, period, exec, emote"
+        ", Print, exec, hyprshot -m region --clipboard-only"
         ]
         ++ (
           builtins.concatLists (builtins.genList (i:
