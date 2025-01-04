@@ -5,6 +5,7 @@
 }: {
   imports = [
     ./waybar.nix
+    ./hyprlock.nix
   ];
   services.cliphist.enable = true;
   programs.rofi = {
@@ -27,14 +28,16 @@
       decoration = {
         rounding = 5;
       };
-      windowrulev2 = [ "workspace 3, class:vesktop" ];
+      windowrulev2 = [ "workspace 3, class:vesktop" "workspace 1, class:firefox" ];
       "$mod" = "SUPER";
       "exec-once" = [ 
         "waybar" 
         "wl-clipboard" 
         "vesktop --ozone-platform=wayland" 
         "hyprctl setcursor macOS 24" 
-        "exec-once = systemctl --user start hyprpolkitagent"
+        "systemctl --user start hyprpolkitagent"
+        "firefox"
+        "code"
         ];
       input = {
         "kb_layout" = "us";

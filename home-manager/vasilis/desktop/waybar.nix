@@ -14,6 +14,14 @@
           modules-center = [ "clock" ];
           
           #Module Config
+          "hyprland/workspaces" = {
+            "format" = "{windows}";
+            "window-rewrite" = {
+              "class<vesktop>" = "";
+              "class<code>" = "";
+              "class<firefox>" = "";
+            };
+          };
           "battery" = {
             "format" = "🔋{capacity}%";
           };
