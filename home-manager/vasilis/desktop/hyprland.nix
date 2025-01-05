@@ -43,8 +43,13 @@
         "kb_layout" = "us";
         "kb_variant" = "colemak";
       };
+      bindm = [
+        "$mod, mouse:272, movewindow"
+        "$mod&Shift, mouse:272, resizewindow"
+      ];
       bind = [
-        "$mod, T, exec, alacritty" 
+        "$mod, T, exec, alacritty"
+        "$mod, E, exec, nemo"
         "$mod&Shift, M, exit"
         "$mod, Space, exec, rofi -show drun"
         "$mod, Q, killactive"

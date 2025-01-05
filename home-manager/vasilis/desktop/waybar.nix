@@ -20,6 +20,8 @@
               "class<vesktop>" = "";
               "class<code>" = "";
               "class<firefox>" = "";
+              "class<alacritty>" = "";
+              "class<nemo>" = "";
             };
           };
           "battery" = {
