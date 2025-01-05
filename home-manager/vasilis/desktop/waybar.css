@@ -12,3 +12,20 @@ window#waybar {
 .modules-left {
     margin-left: 5px;
 }
+
+#workspaces button {
+    border: 1px solid white;
+    border-radius: 0%;
+}
+
+#workspaces {
+    border: 1px solid white;
+}
+
+#custom-home {
+    margin: 5px;
+}
+
+#custom-home:hover {
+    box-shadow: inset 0 -3px #ffffff;
+}

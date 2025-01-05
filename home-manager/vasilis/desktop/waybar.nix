@@ -15,7 +15,7 @@
           
           #Module Config
           "hyprland/workspaces" = {
-            "format" = "{windows}";
+            "format" = "{id}: {windows}";
             "window-rewrite" = {
               "class<vesktop>" = "";
               "class<code>" = "";
