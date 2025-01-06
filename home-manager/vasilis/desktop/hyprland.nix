@@ -16,11 +16,10 @@
   home.packages = with pkgs; [ hyprcursor emote hyprshot hyprpolkitagent networkmanagerapplet ];
    wayland.windowManager.hyprland = {
     enable = true;
-    # set the flake package
     xwayland.enable = true;
-    package = inputs.hyprland.packages.${pkgs.stdenv.hostPlatform.system}.hyprland;
+    package = pkgs.hyprland; 
     settings = {
-      monitor = "laptopScreen, 1920x1080, 0x0, 1";
+      monitor = "eDP-1, 1920x1080, 0x0, 1.25";
       xwayland.force_zero_scaling = true;
       general = {
         gaps_out = 5;
@@ -37,7 +36,6 @@
         "hyprctl setcursor macOS 24" 
         "systemctl --user start hyprpolkitagent"
         "firefox"
-        "code"
         ];
       input = {
         "kb_layout" = "us";
@@ -67,7 +65,6 @@
           )
           9)
         );
-      # "bind" = "$mod, SHIFT, M, exit";
     };
           };
     
