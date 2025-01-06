@@ -29,6 +29,11 @@
 
   # Enable networking
   networking.networkmanager.enable = true;
+  networking.firewall = {
+    enable = true;
+    allowedTCPPorts = [ 53317 22000 ];
+    allowedUDPPorts = [ 53317 22000 21027 ];
+  };
 
   # Set your time zone.
   time.timeZone = "Europe/Berlin";

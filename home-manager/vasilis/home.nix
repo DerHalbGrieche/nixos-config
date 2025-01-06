@@ -20,6 +20,7 @@
     ./desktop/hyprland.nix
     ./desktop/gtk.nix
     ./cli/fish.nix
+    ./desktop/syncthing.nix
     # You can also split up your configuration and import pieces of it here:
     # ./nvim.nix
   ];
