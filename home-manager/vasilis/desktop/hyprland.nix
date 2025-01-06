@@ -17,7 +17,7 @@
    wayland.windowManager.hyprland = {
     enable = true;
     xwayland.enable = true;
-    package = pkgs.hyprland; 
+    package = pkgs.hyprland;
     settings = {
       monitor = "eDP-1, 1920x1080, 0x0, 1.25";
       xwayland.force_zero_scaling = true;
