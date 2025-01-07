@@ -13,7 +13,7 @@
     package = pkgs.rofi-wayland;
     theme = "material";
   };
-  home.packages = with pkgs; [ hyprcursor emote hyprshot hyprpolkitagent networkmanagerapplet ];
+  home.packages = with pkgs; [ hyprcursor emote hyprshot hyprpolkitagent networkmanagerapplet brightnessctl wlogout ];
    wayland.windowManager.hyprland = {
     enable = true;
     xwayland.enable = true;
@@ -53,7 +53,10 @@
         "$mod, Q, killactive"
         "$mod, F, exec, firefox"
         "$mod, period, exec, emote"
+        ", XF86MonBrightnessDown, exec, brightnessctl set 10%-"
+        ", XF86MonBrightnessUp, exec, brightnessctl set +10%"
         ", Print, exec, hyprshot -m region --clipboard-only"
+        ", XF86PowerOff, exec, wlogout"
         ]
         ++ (
           builtins.concatLists (builtins.genList (i:

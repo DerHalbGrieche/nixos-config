@@ -20,6 +20,7 @@
   };
   boot.loader.efi.canTouchEfiVariables = true;
 
+  services.logind.powerKey = "ignore";
 
   networking.hostName = "laptopUni"; # Define your hostname.
   # networking.wireless.enable = true;  # Enables wireless support via wpa_supplicant.
