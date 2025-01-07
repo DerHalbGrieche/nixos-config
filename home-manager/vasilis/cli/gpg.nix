@@ -8,10 +8,14 @@
     enable = true;
     enableSshSupport = true;
     enableExtraSocket = true;
-    pinentryPackage =
-      if config.gtk.enable
-      then pkgs.pinentry-gnome3
-      else pkgs.pinentry-tty;
+    pinentryPackage = pkgs.pinentry-rofi;
+      #if config.gtk.enable
+      #then pkgs.pinentry-gnome3
+      #else pkgs.pinentry-tty;
+    #defaultCacheTtl = 600;
+    #maxCacheTtl = 7200;
+    #extraConfig = "allow-preset-passphrase
+#pinentry-timeout 10";
   };
 
   home.packages = lib.optional config.gtk.enable pkgs.gcr;
@@ -35,10 +39,6 @@
       enable = true;
       settings = {
         trust-model = "tofu+pgp";
-      };
-      scdaemonSettings = {
-        reader-port = "Yubico Yubi";
-        disable-ccid = false;
       };
     };
   };

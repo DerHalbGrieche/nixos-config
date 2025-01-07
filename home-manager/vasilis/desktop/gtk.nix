@@ -3,6 +3,7 @@
   lib,
   ...
 }: {
+  home.packages = [ pkgs.dconf ];
   gtk = {
     enable = true;
     iconTheme = {
