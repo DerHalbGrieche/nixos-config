@@ -3,7 +3,7 @@
   lib,
   ...
 }: {
-  home.packages = [ pkgs.dconf ];
+  home.packages = [ pkgs.dconf pkgs.fira-code ];
   gtk = {
     enable = true;
     iconTheme = {

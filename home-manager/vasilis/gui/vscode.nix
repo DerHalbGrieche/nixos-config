@@ -14,8 +14,8 @@
         "workbench.colorTheme" = "Default High Contrast";
         "nix.enableLanguageServer" = true;
         "git.autofetch" = true;
-        #"editor.fontFamily" = "'Fira Code'";
-        # "editor.fontLigatures" = true;
+        "editor.fontFamily" = "'Fira Code'";
+        "editor.fontLigatures" = true;
     };
   };
 }
