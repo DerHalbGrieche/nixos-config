@@ -30,8 +30,7 @@ input {
     };
   };
   environment.etc."greetd/enviroments".text = ''
-  ${pkgs.hyprland}/bin/Hyprland
-  ${pkgs.fish}/bin/fish
+  Hyprland
   '';
 
   #programs.regreet = {
