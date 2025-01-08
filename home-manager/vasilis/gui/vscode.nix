@@ -8,6 +8,9 @@
       arrterian.nix-env-selector
       gitlab.gitlab-workflow
       mkhl.direnv
+      github.copilot
+      github.copilot-chat
+
     ];
     userSettings = {
         "files.autoSave" = "onFocusChange";

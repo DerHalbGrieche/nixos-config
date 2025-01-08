@@ -21,6 +21,7 @@
   boot.loader.efi.canTouchEfiVariables = true;
 
   services.logind.powerKey = "ignore";
+  security.sudo.wheelNeedsPassword = false;
 
   networking.hostName = "laptopUni"; # Define your hostname.
   # networking.wireless.enable = true;  # Enables wireless support via wpa_supplicant.
@@ -123,6 +124,7 @@
      git
      htop
      home-manager
+     
   ];
 
   # Some programs need SUID wrappers, can be configured further or are
