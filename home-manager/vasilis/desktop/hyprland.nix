@@ -36,6 +36,7 @@
         "hyprctl setcursor macOS 24" 
         "systemctl --user start hyprpolkitagent"
         "firefox"
+        "hypridle"
         ];
       input = {
         "kb_layout" = "us";
@@ -47,6 +48,7 @@
       ];
       bind = [
         "$mod, T, exec, alacritty"
+        "$mod, L, exec, hyprlock"
         "$mod, E, exec, nemo"
         "$mod&Shift, M, exit"
         "$mod, Space, exec, rofi -show drun"

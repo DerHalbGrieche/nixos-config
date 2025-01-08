@@ -19,6 +19,7 @@
     ./gui/vscode.nix
     ./desktop/hyprland.nix
     ./desktop/hyprpaper.nix
+    ./desktop/hypridle.nix
     ./desktop/gtk.nix
     ./cli/fish.nix
     ./desktop/syncthing.nix
