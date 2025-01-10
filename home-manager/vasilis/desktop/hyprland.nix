@@ -13,7 +13,7 @@
     package = pkgs.rofi-wayland;
     theme = "material";
   };
-  home.packages = with pkgs; [ hyprcursor emote hyprshot hyprpolkitagent networkmanagerapplet brightnessctl wlogout ];
+  home.packages = with pkgs; [ hyprcursor emote hyprshot hyprpolkitagent networkmanagerapplet brightnessctl wlogout wl-clipboard ];
    wayland.windowManager.hyprland = {
     enable = true;
     xwayland.enable = true;
@@ -48,6 +48,7 @@
       ];
       bind = [
         "$mod, T, exec, alacritty"
+        "$mod, V, exec, cliphist list | rofi -dmenu | cliphist decode | wl-copy"
         "$mod, L, exec, hyprlock"
         "$mod, E, exec, nemo"
         "$mod&Shift, M, exit"
