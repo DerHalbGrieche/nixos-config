@@ -2,16 +2,25 @@
   pkgs,
   inputs,
   ...
-}: {
+
+}: 
+ let
+  rofiTheme = builtins.fetchurl {
+    url = "https://raw.githubusercontent.com/Murzchnvok/rofi-collection/refs/heads/master/material/material.rasi";
+    sha256 = "2c0a0de8ace26112dff9139d44ce663bf9fa206dcf42ff18a21748d411a48d38";
+  };
+in{
+  
   imports = [
     ./waybar.nix
     ./hyprlock.nix
   ];
   services.cliphist.enable = true;
   programs.rofi = {
+    
     enable = true;
     package = pkgs.rofi-wayland;
-    theme = "material";
+    theme = rofiTheme;
   };
   home.packages = with pkgs; [ hyprcursor emote hyprshot hyprpolkitagent networkmanagerapplet brightnessctl wlogout wl-clipboard ];
    wayland.windowManager.hyprland = {
