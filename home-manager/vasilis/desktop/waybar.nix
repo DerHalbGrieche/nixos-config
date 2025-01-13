@@ -60,8 +60,9 @@
             curl -s https://api.coindesk.com/v1/bpi/currentprice.json | \
             jq '.bpi.USD.rate' --unbuffered --compact-output | \
             tr --delete "\"" | \
+            sed -E 's/([0-9]+)\.([0-9]{3}).*/\1/' | \
             sed -E ':a;s/([0-9])([0-9]{3})(,|$)/\1.\2\3/;ta' | \
-            sed -e 's/,/COMMA/g' -e 's/\./DOT/g' -e 's/COMMA/./g' -e 's/DOT/,/g'
+            sed -e 's/\./,/g' -e "s/,/'/g"
   '';
           };
 
