@@ -58,7 +58,7 @@
   # Add stuff for your user as you see fit:
   # programs.neovim.enable = true;
   # home.packages = with pkgs; [ steam ];
-  home.packages = with pkgs; [ vesktop comma nil  mpv spotify font-awesome localsend nemo fira-code ];
+  home.packages = with pkgs; [ vesktop comma nil  mpv spotify font-awesome localsend nemo fira-code pavucontrol jq ];
   fonts.fontconfig.enable = true;
   services.arrpc.enable = true;
   # Enable home-manager and git
