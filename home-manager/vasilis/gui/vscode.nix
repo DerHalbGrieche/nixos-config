@@ -1,4 +1,5 @@
 { pkgs, ... }: {
+  home.packages = with pkgs; [ gcc ];
   programs.vscode = {
     enable = true;
     #package = pkgs.vscodium;  # Using VSCodium package
@@ -10,6 +11,7 @@
       mkhl.direnv
       github.copilot
       github.copilot-chat
+      ms-vscode.cpptools-extension-pack
 
     ];
     userSettings = {
