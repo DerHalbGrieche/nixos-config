@@ -23,6 +23,7 @@
               "class<firefox>" = "";
               "class<alacritty>" = "";
               "class<nemo>" = "";
+              "class<steam>" = "";
             };
           };
           "clock" = {

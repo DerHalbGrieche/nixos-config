@@ -58,12 +58,13 @@
   # Add stuff for your user as you see fit:
   # programs.neovim.enable = true;
   # home.packages = with pkgs; [ steam ];
-  home.packages = with pkgs; [ vesktop comma nil  mpv spotify font-awesome localsend nemo fira-code pavucontrol jq ];
+  home.packages = with pkgs; [ vesktop comma nil  mpv spotify font-awesome localsend nemo-with-extensions nemo-fileroller nemo-python fira-code pavucontrol jq wine osu-lazer-bin ];
   fonts.fontconfig.enable = true;
   services.arrpc.enable = true;
   # Enable home-manager and git
   programs.home-manager.enable = true;
   programs.git.enable = true;
+  
 
   # Nicely reload system units when changing configs
   systemd.user.startServices = "sd-switch";
