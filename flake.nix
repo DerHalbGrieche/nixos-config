@@ -40,7 +40,7 @@
         extraSpecialArgs = {inherit inputs outputs;};
         modules = [./home-manager/vasilis/home.nix];
       };
-      "rizzler@server" = home-manager.lib.homeConfiguration {
+      "rizzler@server" = home-manager.lib.homeManagerConfiguration {
         pkgs = nixpkgs.legacyPackages.x86_64-linux;
         extraSpecialArgs = {inherit inputs outputs;};
         modules = [./home-manager/rizzler/home.nix];
