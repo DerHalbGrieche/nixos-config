@@ -17,7 +17,20 @@
     useOSProber = true;
   };
   boot.loader.efi.canTouchEfiVariables = true;
-  services.tailscale.enable = true;
+  services.tailscale = {
+    enable = true;
+    tunnels = {
+      "68b83d64-09d9-459a-ba62-4572fda6dc3e" = {
+        credentialsFile = /rizzler/.cloudflared/cert.pem;
+        default = "http_status:404";
+        ingress = {
+          "ssh.wb-web01.de" = {
+            service = "ssh://localhost:22";
+          };
+        };
+      };
+    };
+  };
   services.cloudflared.enable = true;
   services.logind.powerKey = "ignore";
   security.sudo.wheelNeedsPassword = false;
