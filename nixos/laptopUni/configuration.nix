@@ -19,7 +19,7 @@
     device = "nodev";
   };
   boot.loader.efi.canTouchEfiVariables = true;
-
+  services.tailscale.enable = true;
   services.logind.powerKey = "ignore";
   security.sudo.wheelNeedsPassword = false;
 

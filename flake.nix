@@ -41,7 +41,7 @@
         modules = [./home-manager/vasilis/home.nix];
       };
       "rizzler@server" = home-manager.lib.homeConfiguration {
-        pkgs = nixpkgs.legacyPackages.x86-64-linux;
+        pkgs = nixpkgs.legacyPackages.x86_64-linux;
         extraSpecialArgs = {inherit inputs outputs;};
         modules = [./home-manager/rizzler/home.nix];
       };
