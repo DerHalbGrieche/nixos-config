@@ -1,0 +1,19 @@
+{
+  ...
+}: {
+  imports = [
+    ./cli/git.nix
+    ./cli/pass.nix
+    ./cli/gpg.nix
+    ./cli/nix-index.nix
+    ./gui/firefox.nix
+    ./gui/vscode.nix
+    ./desktop/hyprland.nix
+    ./desktop/hyprpaper.nix
+    ./desktop/hypridle.nix
+    ./desktop/gtk.nix
+    ./desktop/syncthing.nix
+    ./gui/alacritty.nix
+
+  ];
+}

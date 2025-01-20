@@ -8,8 +8,6 @@
   imports =
     [ # Include the results of the hardware scan.
       ./hardware-configuration.nix
-      ./greetd.nix
-      #./hyprland.nix
     ];
 
   # Bootloader.
@@ -23,7 +21,7 @@
   services.logind.powerKey = "ignore";
   security.sudo.wheelNeedsPassword = false;
 
-  networking.hostName = "laptopUni"; # Define your hostname.
+  networking.hostName = "server"; # Define your hostname.
   # networking.wireless.enable = true;  # Enables wireless support via wpa_supplicant.
   nix.settings.experimental-features = [ "nix-command" "flakes" ];
   # Configure network proxy if necessary
@@ -34,8 +32,8 @@
   networking.networkmanager.enable = true;
   networking.firewall = {
     enable = true;
-    allowedTCPPorts = [ 53317 22000 ];
-    allowedUDPPorts = [ 53317 22000 21027 ];
+    allowedTCPPorts = [  ];
+    allowedUDPPorts = [  ];
   };
 
   # Set your time zone.
@@ -61,12 +59,6 @@
   # services.xserver.enable = true;
 
   # Configure keymap in X11
-  services.xserver.xkb = {
-    layout = "us";
-    variant = "colemak";
-  };
-
-  console.useXkbConfig = true;
 
   # Enable CUPS to print documents.
   services.printing.enable = true;
@@ -90,14 +82,10 @@
   # Enable touchpad support (enabled default in most desktopManager).
   # services.xserver.libinput.enable = true;
   programs.fish.enable = true;
-  programs.steam = {
-    enable = true;
-    protontricks.enable = true;
-  };
   # Define a user account. Don't forget to set a password with ‘passwd’.
-  users.users.vasilis = {
+  users.users.rizzler = {
     isNormalUser = true;
-    description = "vasilis";
+    description = "rizzler";
     extraGroups = [ "networkmanager" "wheel" ];
     packages = with pkgs; [
     #  thunderbird
@@ -111,7 +99,6 @@
 
   # Install firefox.
   programs.nix-ld.enable = true;
-  programs.firefox.enable = true;
 
   # Allow unfree packages
   nixpkgs.config.allowUnfree = true;
@@ -131,6 +118,17 @@
      
   ];
 
+  services.openssh = {
+  enable = true;
+  ports = [ 22 ];
+  settings = {
+    PasswordAuthentication = true;
+    AllowUsers = ["rizzler"]; # Allows all users by default. Can be [ "user1" "user2" ]
+    UseDns = true;
+    X11Forwarding = false;
+    PermitRootLogin = "prohibit-password"; # "yes", "without-password", "prohibit-password", "forced-commands-only", "no"
+  };
+};
   # Some programs need SUID wrappers, can be configured further or are
   # started in user sessions.
   # programs.mtr.enable = true;

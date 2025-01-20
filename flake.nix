@@ -1,5 +1,5 @@
 {
-  description = "Your new nix config";
+  description = "My NixOS Config";
 
   inputs = {
     # Nixpkgs
@@ -26,6 +26,10 @@
         specialArgs = {inherit inputs outputs;};
         modules = [./nixos/laptopUni/configuration.nix];
       };
+      server = nixpkgs.lib.nixosSystem {
+        specialArgs = {inherit inputs outputs;};
+        modules = [./nixos/server/configuration.nix];
+      };
     };
 
     # Standalone home-manager configuration entrypoint
@@ -35,6 +39,11 @@
         pkgs = nixpkgs.legacyPackages.x86_64-linux; # Home-manager requires 'pkgs' instance
         extraSpecialArgs = {inherit inputs outputs;};
         modules = [./home-manager/vasilis/home.nix];
+      };
+      "rizzler@server" = home-manager.lib.homeConfiguration {
+        pkgs = nixpkgs.legacyPackages.x86-64-linux;
+        extraSpecialArgs = {inherit inputs outputs;};
+        modules = [./home-manager/rizzler/home.nix];
       };
     };
   };

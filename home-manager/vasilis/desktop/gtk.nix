@@ -4,6 +4,11 @@
   ...
 }: {
   home.packages = [ pkgs.dconf pkgs.fira-code ];
+  dconf.settings = {
+    "org/gnome/desktop/interface" = {
+        color-scheme = "prefer-dark";
+      };
+  };
   gtk = {
     enable = true;
     iconTheme = {
@@ -25,4 +30,7 @@
       size = 10;
     };
   };
+  #qt.enable = true;
+  #qt.style.name = "material";
+  #qt.platformTheme = "gtk2";
 }

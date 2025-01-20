@@ -40,16 +40,14 @@
   };
 
   home = {
-    username = "vasilis";
-    homeDirectory = "/home/vasilis";
+    username = "rizzler";
+    homeDirectory = "/home/rizzler";
   };
 
   # Add stuff for your user as you see fit:
   # programs.neovim.enable = true;
   # home.packages = with pkgs; [ steam ];
-  home.packages = with pkgs; [ vesktop comma nil  mpv spotify font-awesome localsend nemo-with-extensions nemo-fileroller nemo-python fira-code pavucontrol jq wine osu-lazer-bin whatsapp-for-linux ];
-  fonts.fontconfig.enable = true;
-  services.arrpc.enable = true;
+  home.packages = with pkgs; [ comma jq ];
   # Enable home-manager and git
   programs.home-manager.enable = true;
   programs.git.enable = true;
