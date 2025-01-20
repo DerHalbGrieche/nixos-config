@@ -17,7 +17,7 @@
     useOSProber = true;
   };
   boot.loader.efi.canTouchEfiVariables = true;
-  services.tailscale = {
+  services.cloudflared = {
     enable = true;
     tunnels = {
       "68b83d64-09d9-459a-ba62-4572fda6dc3e" = {
@@ -31,7 +31,7 @@
       };
     };
   };
-  services.cloudflared.enable = true;
+  services.tailscale.enable = true;
   services.logind.powerKey = "ignore";
   security.sudo.wheelNeedsPassword = false;
 
