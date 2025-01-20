@@ -90,6 +90,7 @@
     extraGroups = [ "networkmanager" "wheel" ];
     packages = with pkgs; [
     #  thunderbird
+      cloudflared
     ];
     shell = pkgs.fish;
   };
