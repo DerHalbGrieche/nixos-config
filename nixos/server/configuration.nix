@@ -13,8 +13,8 @@
   # Bootloader.
   boot.loader.grub = {
     enable = true;
-    efiSupport = true;
-    device = "nodev";
+    device = "/dev/sda";
+    useOSProber = true;
   };
   boot.loader.efi.canTouchEfiVariables = true;
 
