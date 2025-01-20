@@ -4,9 +4,11 @@ stages:
 mirror_to_github:
   stage: mirror
   script:
+    # Entferne vorherige Remote-Einstellungen, falls vorhanden
     - git remote remove github || true
+    # Füge GitHub als Remote hinzu
     - git remote add github https://oauth2:${GITHUB_TOKEN}@github.com/DerHalbGrieche/nixos-config-mirror.git
-    # Führe ein vollständiges Mirror-Push aus
-    - git push --mirror github
+    # Push nur für Branches und Tags, keine CI/CD-Refs
+    - git push github --prune "refs/heads/*:refs/heads/*" "refs/tags/*:refs/tags/*"
   only:
     - main
