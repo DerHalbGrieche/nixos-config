@@ -21,7 +21,7 @@
     enable = true;
     tunnels = {
       "68b83d64-09d9-459a-ba62-4572fda6dc3e" = {
-        credentialsFile = "/home/rizzler/.cloudflared/cert.pem";
+        credentialsFile = "/home/rizzler/.cloudflared/68b83d64-09d9-459a-ba62-4572fda6dc3e.json";
         default = "http_status:404";
         ingress = {
           "ssh.wb-web01.de" = {
