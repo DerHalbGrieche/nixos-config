@@ -33,8 +33,8 @@
   networking.networkmanager.enable = true;
   networking.firewall = {
     enable = true;
-    allowedTCPPorts = [  ];
-    allowedUDPPorts = [  ];
+    allowedTCPPorts = [ 22 ];
+    allowedUDPPorts = [ 22 ];
   };
 
   # Set your time zone.
@@ -145,8 +145,8 @@
   # services.openssh.enable = true;
 
   # Open ports in the firewall.
-  # networking.firewall.allowedTCPPorts = [ ... ];
-  # networking.firewall.allowedUDPPorts = [ ... ];
+  # networking.firewall.allowedTCPPorts = [ 22 ];
+  # networking.firewall.allowedUDPPorts = [ 22 ];
   # Or disable the firewall altogether.
   # networking.firewall.enable = false;
 
