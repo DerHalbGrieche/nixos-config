@@ -4,8 +4,11 @@ stages:
 mirror_to_github:
   stage: mirror
   script:
+    # Entferne den Remote, falls er existiert
+    - git remote remove github || true
+    # Füge den GitHub-Remote hinzu
     - git remote add github https://oauth2:${GITHUB_TOKEN}@github.com/DerHalbGrieche/nixos-config-mirror.git
+    # Spiegle das Repository auf GitHub
     - git push --mirror github
   only:
-    - main  # Optional: Passe dies an, wenn andere Branches gespiegelt werden sollen
-
+    - main
