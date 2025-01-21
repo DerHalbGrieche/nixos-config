@@ -16,23 +16,7 @@
     device = "/dev/sda";
     useOSProber = true;
   };
-  boot.loader.efi.canTouchEfiVariables = true;
-  services.cloudflared = {
-    enable = true;
-    user = "rizzler";
-    group = "rizzler"; 
-  };
 
-systemd.services.my_tunnel = {
-    wantedBy = [ "multi-user.target" ];
-    after = [ "network.target" ];
-    serviceConfig = {
-      ExecStart = "${pkgs.cloudflared}/bin/cloudflared tunnel --no-autoupdate run --token=${builtins.readFile ./.cloudflaredtoken}";
-      Restart = "always";
-      User = "rizzler";
-      Group = "rizzler";
-    };
-  };
 
   services.tailscale.enable = true;
   services.logind.powerKey = "ignore";
