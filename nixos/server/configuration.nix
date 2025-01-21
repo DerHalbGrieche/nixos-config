@@ -32,7 +32,7 @@ in {
 
     # Script to run tailscale funnel for each port
     serviceConfig = {
-      ExecStart = "${pkgs.bash}/bin/bash -c '${lib.concatStringsSep " " (map (port: "tailscale funnel ${toString port}") funnelPorts)}'";
+      ExecStart = "${pkgs.bash}/bin/bash -c '${lib.concatStringsSep " && " (map (port: "${pkgs.tailscale}/bin/tailscale funnel ${toString port}") funnelPorts)}'";
       Restart = "on-failure";
       RestartSec = "5s";
       User = "root";
