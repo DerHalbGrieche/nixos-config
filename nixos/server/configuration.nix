@@ -19,17 +19,8 @@
   boot.loader.efi.canTouchEfiVariables = true;
   services.cloudflared = {
     enable = true;
-    tunnels = {
-      "68b83d64-09d9-459a-ba62-4572fda6dc3e" = {
-        credentialsFile = "/home/rizzler/.cloudflared/68b83d64-09d9-459a-ba62-4572fda6dc3e.json";
-        default = "http_status:404";
-        ingress = {
-          "ssh.wb-web01.de" = {
-            service = "ssh://localhost:22";
-          };
-        };
-      };
-    };
+    user = "rizzler";
+    group = "rizzler"; 
   };
   services.tailscale.enable = true;
   services.logind.powerKey = "ignore";
