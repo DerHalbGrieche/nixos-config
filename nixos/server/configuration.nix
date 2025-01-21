@@ -2,9 +2,12 @@
 # your system.  Help is available in the configuration.nix(5) man page
 # and in the NixOS manual (accessible by running ‘nixos-help’).
 
-{ config, pkgs, ... }:
+{ config, pkgs, lib, ... }:
 
-{
+let
+  # Define the ports you want to funnel
+  funnelPorts = [ 22 80 ];
+in {
   imports =
     [ # Include the results of the hardware scan.
       ./hardware-configuration.nix
@@ -19,6 +22,28 @@
 
 
   services.tailscale.enable = true;
+
+
+  # Define a systemd service for Tailscale Funnel
+  systemd.services.tailscale-funnel = {
+    description = "Tailscale Funnel for Multiple Ports";
+    after = [ "network.target" "tailscaled.service" ];
+    wants = [ "network.target" "tailscaled.service" ];
+
+    # Script to run tailscale funnel for each port
+    serviceConfig = {
+      ExecStart = "${pkgs.bash}/bin/bash -c '${lib.concatStringsSep " " (map (port: "tailscale funnel ${toString port}") funnelPorts)}'";
+      Restart = "on-failure";
+      RestartSec = "5s";
+      User = "root";
+    };
+
+    # Ensure the service is enabled and starts automatically
+    wantedBy = [ "multi-user.target" ];
+    enable = true;
+  };
+
+
   services.logind.powerKey = "ignore";
   security.sudo.wheelNeedsPassword = false;
 
