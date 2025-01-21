@@ -27,7 +27,7 @@ systemd.services.my_tunnel = {
     wantedBy = [ "multi-user.target" ];
     after = [ "network.target" ];
     serviceConfig = {
-      ExecStart = "${pkgs.cloudflared}/bin/cloudflared tunnel --no-autoupdate run --token=${builtins.readFile /home/rizzler/.cloudflaredtoken}";
+      ExecStart = "${pkgs.cloudflared}/bin/cloudflared tunnel --no-autoupdate run --token=${builtins.readFile ./.cloudflaredtoken}";
       Restart = "always";
       User = "rizzler";
       Group = "rizzler";
