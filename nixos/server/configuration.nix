@@ -6,7 +6,7 @@
 
 let
   # Define the ports you want to funnel
-  funnelPorts = [ 22 80 ];
+  funnelPorts = [ 22 81 ];
 in {
   imports =
     [ # Include the results of the hardware scan.

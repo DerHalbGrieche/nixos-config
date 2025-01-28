@@ -12,7 +12,7 @@
       github.copilot
       github.copilot-chat
       ms-vscode.cpptools-extension-pack
-
+      tomoki1207.pdf
     ];
     userSettings = {
         "files.autoSave" = "onFocusChange";

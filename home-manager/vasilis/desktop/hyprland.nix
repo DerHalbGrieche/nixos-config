@@ -68,6 +68,8 @@ in{
         "$mod&Shift, right, movewindow, r"
         "$mod&Shift, up, movewindow, u"
         "$mod&Shift, down, movewindow, d"
+        "$mod, F11, fullscreen"
+        "$mod&Shift, F, togglefloating"
         "$mod&Shift, M, exit"
         "$mod, Space, exec, rofi -show drun"
         "$mod, Q, killactive"
