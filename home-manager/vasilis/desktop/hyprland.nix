@@ -20,6 +20,7 @@ in{
     
     enable = true;
     package = pkgs.rofi-wayland;
+    plugins = with pkgs; [ rofi-calc ];
     theme = rofiTheme;
   };
   home.packages = with pkgs; [ hyprcursor emote hyprshot hyprpolkitagent networkmanagerapplet brightnessctl wlogout wl-clipboard ];

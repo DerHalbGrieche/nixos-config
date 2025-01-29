@@ -6,6 +6,7 @@
     ./cli/pass.nix
     ./cli/gpg.nix
     ./cli/nix-index.nix
+    ./cli/podman.nix
     ./gui/firefox.nix
     ./gui/vscode.nix
     ./desktop/hyprland.nix
