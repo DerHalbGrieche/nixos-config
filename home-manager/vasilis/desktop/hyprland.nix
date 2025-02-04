@@ -37,7 +37,7 @@ in{
       decoration = {
         rounding = 5;
       };
-      windowrulev2 = [ "workspace 3, class:vesktop" "workspace 1, class:firefox" ];
+      windowrulev2 = [ "workspace 3, class:vesktop" "workspace 1, class:qutebrowserorg.qutebrowser.qutebrowser" ];
       "$mod" = "SUPER";
       "exec-once" = [ 
         "waybar" 
@@ -45,7 +45,7 @@ in{
         "vesktop --ozone-platform=wayland" 
         "hyprctl setcursor macOS 24" 
         "systemctl --user start hyprpolkitagent"
-        "firefox"
+        "qutebrowser"
         "hypridle"
         ];
       input = {
@@ -74,7 +74,7 @@ in{
         "$mod&Shift, M, exit"
         "$mod, Space, exec, rofi -show drun"
         "$mod, Q, killactive"
-        "$mod, F, exec, firefox"
+        "$mod, F, exec, qutebrowser"
         "$mod, period, exec, emote"
         ", XF86MonBrightnessDown, exec, brightnessctl set 10%-"
         ", XF86MonBrightnessUp, exec, brightnessctl set +10%"
