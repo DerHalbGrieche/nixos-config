@@ -38,6 +38,10 @@
     allowedUDPPorts = [ 53317 22000 21027 4444 ];
   };
 
+  networking.hosts = {
+    "127.0.0.1" = [ "lolcathost" ];
+  };
+
   # Set your time zone.
   time.timeZone = "Europe/Berlin";
 
