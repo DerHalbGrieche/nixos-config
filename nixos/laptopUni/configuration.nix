@@ -34,8 +34,8 @@
   networking.networkmanager.enable = true;
   networking.firewall = {
     enable = true;
-    allowedTCPPorts = [ 53317 22000 ];
-    allowedUDPPorts = [ 53317 22000 21027 ];
+    allowedTCPPorts = [ 53317 22000 4444 ];
+    allowedUDPPorts = [ 53317 22000 21027 4444 ];
   };
 
   # Set your time zone.
