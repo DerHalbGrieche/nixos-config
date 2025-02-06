@@ -8,6 +8,7 @@
     ./cli/nix-index.nix
     ./cli/podman.nix
     #./cli/neovim.nix
+    ./cli/helix.nix
     ./gui/firefox.nix
     ./gui/vscode.nix
     ./desktop/hyprland.nix
