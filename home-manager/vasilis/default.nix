@@ -7,6 +7,7 @@
     ./cli/gpg.nix
     ./cli/nix-index.nix
     ./cli/podman.nix
+    #./cli/neovim.nix
     ./gui/firefox.nix
     ./gui/vscode.nix
     ./desktop/hyprland.nix
