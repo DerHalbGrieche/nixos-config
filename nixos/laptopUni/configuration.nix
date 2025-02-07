@@ -93,7 +93,10 @@
 
   # Enable touchpad support (enabled default in most desktopManager).
   # services.xserver.libinput.enable = true;
-  programs.fish.enable = true;
+  programs.fish = {
+    enable = true;
+    interactiveShellInit = " set -g fish_greeting ";
+  };
   programs.steam = {
     enable = true;
     protontricks.enable = true;
