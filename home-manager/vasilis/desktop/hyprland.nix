@@ -57,7 +57,7 @@ in{
         "$mod&Shift, mouse:272, resizewindow"
       ];
       bind = [
-        "$mod, T, exec, alacritty"
+        "$mod, T, exec, kitty"
         "$mod, V, exec, cliphist list | rofi -dmenu | cliphist decode | wl-copy"
         "$mod, L, exec, hyprlock"
         "$mod, E, exec, nemo"

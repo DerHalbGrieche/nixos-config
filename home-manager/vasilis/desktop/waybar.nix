@@ -25,6 +25,7 @@
               "class<nemo>" = "";
               "class<steam>" = "";
               "class<org.qutebrowser.qutebrowser>" = "";
+              "class<kitty>" = "";
             };
           };
           "clock" = {
