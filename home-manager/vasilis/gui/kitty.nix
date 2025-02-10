@@ -5,7 +5,7 @@
   programs.kitty = {
     enable = true;
     shellIntegration.enableFishIntegration = true;
-    themeFile = "MaterialDark";
+    themeFile = "cyberpunk";
     font = {
       name = "Fira Code";
       package = pkgs.fira-code;
