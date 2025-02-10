@@ -5,6 +5,7 @@
   programs.helix = {
     enable = true;
     package = pkgs.evil-helix;
+    extraPackages = with pkgs; [ marksman markdown-oxide ];
     defaultEditor = true;
     settings = {
       theme = "base16_transparent";
