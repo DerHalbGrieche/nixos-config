@@ -36,6 +36,7 @@ in{
       };
       decoration = {
         rounding = 5;
+        dim_inactive = true;
       };
       windowrulev2 = [ "workspace 3, class:vesktop" "workspace 1, class:qutebrowserorg.qutebrowser.qutebrowser" ];
       "$mod" = "SUPER";
