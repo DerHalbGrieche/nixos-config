@@ -4,8 +4,7 @@
 }: {
   programs.helix = {
     enable = true;
-    package = pkgs.evil-helix;
-    extraPackages = with pkgs; [ marksman markdown-oxide libclang ];
+    extraPackages = with pkgs; [ marksman markdown-oxide libclang ruff python313Packages.jedi-language-server python313Packages.python-lsp-server ];
     defaultEditor = true;
     settings = {
       theme = "base16_transparent";
