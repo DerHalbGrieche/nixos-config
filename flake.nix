@@ -30,6 +30,10 @@
         specialArgs = {inherit inputs outputs;};
         modules = [./nixos/server/configuration.nix];
       };
+      desktop = nixpkgs.lib.nixosSystem {
+        specialArgs = {inherit inputs outputs;};
+        modules = [./nixos/desktop/configuration.nix];
+      };
     };
 
     # Standalone home-manager configuration entrypoint
@@ -44,6 +48,11 @@
         pkgs = nixpkgs.legacyPackages.x86_64-linux;
         extraSpecialArgs = {inherit inputs outputs;};
         modules = [./home-manager/rizzler/home.nix];
+      };
+      "vasilis@desktop" = home-manager.lib.homeManagerConfiguration {
+        pkgs = nixpkgs.legacyPackages.x86_64-linux;
+        extraSpecialArgs = {inherit inputs outputs;};
+        modules = [ ./home-manager/vasilis/home.nix ./home-manager/vasilis/desktop.nix ];
       };
     };
   };

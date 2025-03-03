@@ -1,6 +1,7 @@
 {
   pkgs,
   inputs,
+  config,
   ...
 
 }: 
@@ -29,7 +30,7 @@ in{
     xwayland.enable = true;
     package = pkgs.hyprland;
     settings = {
-      monitor = "eDP-1, 1920x1080, 0x0, 1.25";
+      monitor = config.machineSettings.monitors;
       xwayland.force_zero_scaling = true;
       general = {
         gaps_out = 5;
@@ -50,6 +51,7 @@ in{
         "hypridle"
         ];
       input = {
+        accel_profile = config.machineSettings.accel_profile;
         "kb_layout" = "us";
         "kb_variant" = "colemak";
       };
