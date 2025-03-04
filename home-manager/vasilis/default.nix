@@ -6,7 +6,7 @@
     ./cli/pass.nix
     ./cli/gpg.nix
     ./cli/nix-index.nix
-    ./cli/podman.nix
+    #./cli/podman.nix
     #./cli/neovim.nix
     ./cli/helix.nix
     ./cli/zellij.nix

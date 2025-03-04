@@ -4,7 +4,8 @@
   ...
 }: let
   hyprlandConfig = pkgs.writeText "greetd-hyprlandConfig" ''
-      exec-once = ${pkgs.greetd.regreet}/bin/regreet; ${pkgs.hyprland}/bin/hyprctl dispatch exit
+      exec-once = regreet; hyprctl dispatch exit
+      monitor = DP-3, 2560x1440@165, 0x0, 1
 misc {
     disable_hyprland_logo = true
     disable_splash_rendering = true
@@ -19,15 +20,34 @@ input {
    
   services.greetd = {
     enable = true;
-    settings = rec {
-        #command = "${pkgs.greetd.greetd}/bin/agreety --cmd Hyprland";
-      #};
+    settings = {
       initial_session = {
-        command = "${pkgs.hyprland}/bin/Hyprland --config ${hyprlandConfig}";
+        command = "Hyprland";
         user = "vasilis";
-        };
-      default_session = initial_session;
+      };
+     };
+  };
+  programs.regreet = {
+    enable = true;
+    iconTheme = {
+      name = "Papirus-Dark";
+      package = pkgs.papirus-icon-theme;
     };
+    cursorTheme = {
+      package = pkgs.apple-cursor;
+      name = "macOS";
+    };
+    theme = {
+      name = "Materia-dark";
+      package = pkgs.materia-theme;
+    };
+    font = {
+      name = "Fira Code";
+      package = pkgs.fira-code;
+      size = 10;
+    };
+    cageArgs = [ "-s" "-m" "last" ]
+    ;
   };
   environment.etc."greetd/enviroments".text = ''
   Hyprland
