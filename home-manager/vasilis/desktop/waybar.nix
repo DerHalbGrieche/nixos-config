@@ -57,16 +57,9 @@
           };
           "custom/bitcoin" = {
             #"return-type" = "json";
-            "format" = "₿: {}$";
+            "format" = "₿: {}€";
             "interval" = 600;
-          "exec" = ''
-            curl -s https://api.coindesk.com/v1/bpi/currentprice.json | \
-            jq '.bpi.USD.rate' --unbuffered --compact-output | \
-            tr --delete "\"" | \
-            sed -E 's/([0-9]+)\.([0-9]{3}).*/\1/' | \
-            sed -E ':a;s/([0-9])([0-9]{3})(,|$)/\1.\2\3/;ta' | \
-            sed -e 's/\./,/g' -e "s/,/'/g"
-  '';
+          "exec" = "curl -s 'https://api.coingecko.com/api/v3/simple/price?ids=bitcoin,ethereum,zcash,litecoin&vs_currencies=eur' | jq .bitcoin.eur";
           };
           "custom/notifications" = {
             "format" = "🔔";
