@@ -11,7 +11,7 @@
           margin = "5";
           spacing = 5;
           modules-left = [ "custom/home" "hyprland/workspaces" "custom/bitcoin" ];
-          modules-right = [ "cpu" "memory" "wireplumber" "tray" "battery" "custom/logout" ];
+          modules-right = [ "cpu" "memory" "wireplumber" "custom/notifications" "tray" "battery" "custom/logout" ];
           modules-center = [ "clock" ];
           
           #Module Config
@@ -67,6 +67,10 @@
             sed -E ':a;s/([0-9])([0-9]{3})(,|$)/\1.\2\3/;ta' | \
             sed -e 's/\./,/g' -e "s/,/'/g"
   '';
+          };
+          "custom/notifications" = {
+            "format" = "🔔";
+            "on-click" = "swaync-client -op";
           };
 
         };

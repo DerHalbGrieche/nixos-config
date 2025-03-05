@@ -25,6 +25,7 @@ in{
     theme = rofiTheme;
   };
   home.packages = with pkgs; [ hyprcursor emote hyprshot hyprpolkitagent networkmanagerapplet brightnessctl wlogout wl-clipboard ];
+  services.swaync.enable = true;
    wayland.windowManager.hyprland = {
     enable = true;
     xwayland.enable = true;
