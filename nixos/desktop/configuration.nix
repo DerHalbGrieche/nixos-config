@@ -115,6 +115,7 @@
     enable = true;
     protontricks.enable = true;
   };
+  programs.direnv.enable = true;
   # Define a user account. Don't forget to set a password with ‘passwd’.
   users.users.vasilis = {
     isNormalUser = true;
