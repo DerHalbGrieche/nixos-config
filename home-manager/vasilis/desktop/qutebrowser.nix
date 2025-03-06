@@ -11,6 +11,7 @@
     searchEngines = {
       np = "https://search.nixos.org/packages?query={}&channel=unstable";
       mn = "https://mynixos.com/search?q={}";
+      nw = "https://wiki.nixos.org/w/index.php?search={}&title=Special%3ASearch&wprov=acrw1_-1";
     };
     keyBindings = {
       normal = {

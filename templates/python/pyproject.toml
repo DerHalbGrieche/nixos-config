@@ -1,0 +1,33 @@
+[build-system]
+requires = ["poetry-core"]
+build-backend = "poetry.core.masonry.api"
+
+[tool.poetry]
+name = "app"
+version = "0.1.0"
+authors = ["Lucas Brendgen"]
+description = ""
+
+[tool.poetry.dependencies]
+python = "^3.12"
+
+[tool.poetry.group.dev.dependencies]
+pytest = "^8.3"
+ruff = "0.6.1"
+mypy = "^1.11"
+python-lsp-server = "^1.12"
+pylsp-mypy = "^0.6"
+
+[tool.poetry.scripts]
+app = "app.__main__:main"
+
+[tool.ruff]
+line-length = 88
+
+[tool.mypy]
+files = "."
+strict = true
+
+[tool.pytest.ini_options]
+testpaths = ["tests/*"]
+pythonpath = ["."]
