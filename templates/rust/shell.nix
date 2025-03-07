@@ -3,6 +3,7 @@
   rust-analyzer,
   rustfmt,
   clippy,
+  lldb,
 }: let
   mainPkg = callPackage ./default.nix {};
 in
@@ -13,6 +14,7 @@ in
         rust-analyzer
         rustfmt
         clippy
+        lldb
       ]
       ++ (oa.nativeBuildInputs or []);
   })
