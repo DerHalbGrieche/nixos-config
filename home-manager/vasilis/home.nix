@@ -58,17 +58,7 @@
   programs.home-manager.enable = true;
   programs.git.enable = true;
   xdg.enable = true;
-  xdg.desktopEntries.nemo = {
-    name = "nemo";
-    exec = "${pkgs.nemo-with-extensions}/bin/nemo";
-  };
-  xdg.mimeApps = {
-    enable = true;
-    defaultApplications = {
-      "inode/directory" = [ "nemo.desktop" ];
-      "application/x-gnome-saved-search" = [ "nemo.desktop" ];
-    };
-  };  
+  
 
   # Nicely reload system units when changing configs
   systemd.user.startServices = "sd-switch";
