@@ -26,6 +26,7 @@
               "class<steam>" = "";
               "class<org.qutebrowser.qutebrowser>" = "";
               "class<kitty>" = "";
+              "class<spotify>" = "";
             };
           };
           "clock" = {
