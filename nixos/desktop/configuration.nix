@@ -75,6 +75,7 @@
 
   # Enable CUPS to print documents.
   services.printing.enable = true;
+  services.dbus.enable = true;
 
   services.flatpak.enable = true;
   xdg.portal.enable = true;
@@ -99,7 +100,7 @@
     alsa.support32Bit = true;
     pulse.enable = true;
     # If you want to use JACK applications, uncomment this
-    #jack.enable = true;
+    jack.enable = true;
 
     # use the example session manager (no others are packaged yet so this is enabled by default,
     # no need to redefine it in your config for now)
@@ -115,7 +116,9 @@
   programs.steam = {
     enable = true;
     protontricks.enable = true;
+    gamescopeSession.enable = true;
   };
+  programs.gamescope.enable = true;
   programs.direnv.enable = true;
   # Define a user account. Don't forget to set a password with ‘passwd’.
   users.users.vasilis = {

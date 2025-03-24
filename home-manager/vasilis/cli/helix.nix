@@ -5,13 +5,7 @@
   programs.helix = {
     enable = true;
     extraPackages = with pkgs; [
-      marksman
-      markdown-oxide
-      libclang
-      ruff
-      python313Packages.jedi-language-server
-      python313Packages.python-lsp-server
-      typescript-language-server
+    helix-gpt
     ];
     defaultEditor = true;
     settings = {
