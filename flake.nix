@@ -45,7 +45,7 @@
       "vasilis@laptopUni" = home-manager.lib.homeManagerConfiguration {
         pkgs = nixpkgs.legacyPackages.x86_64-linux; # Home-manager requires 'pkgs' instance
         extraSpecialArgs = {inherit inputs outputs;};
-        modules = [./home-manager/vasilis/home.nix];
+        modules = [./home-manager/vasilis/home.nix ./home-manager/vasilis/laptopUni.nix ];
       };
       "rizzler@server" = home-manager.lib.homeManagerConfiguration {
         pkgs = nixpkgs.legacyPackages.x86_64-linux;
