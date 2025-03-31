@@ -1,7 +1,4 @@
-{
-  pkgs,
-  ...
-}: {
+{pkgs, ...}: {
   programs.neovim = {
     enable = true;
     defaultEditor = true;
@@ -12,7 +9,6 @@
       gruvbox-material-nvim
     ];
     extraPackages = with pkgs; [
-    
     ];
     extraConfig = ''
       set number relativenumber

@@ -1,7 +1,4 @@
-{
-  lib,
-  ...
-}: {
+{lib, ...}: {
   options.machineSettings = lib.mkOption {
     #type = lib.types.attrsOf (lib.types.listOf lib.types.str);
     type = lib.types.anything;

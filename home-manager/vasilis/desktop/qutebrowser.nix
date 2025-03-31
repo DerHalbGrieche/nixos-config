@@ -1,7 +1,4 @@
-{
-  pkgs,
-  ...
-}: {
+{pkgs, ...}: {
   programs.qutebrowser = {
     enable = true;
     settings = {
@@ -26,6 +23,5 @@
     "application/xhtml+xml" = ["org.qutebrowser.qutebrowser.desktop"];
     "x-scheme-handler/http" = ["org.qutebrowser.qutebrowser.desktop"];
     "x-scheme-handler/https" = ["org.qutebrowser.qutebrowser.desktop"];
-    
   };
 }

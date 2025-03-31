@@ -9,13 +9,13 @@
     enableSshSupport = true;
     enableExtraSocket = true;
     pinentryPackage = pkgs.pinentry-rofi;
-      #if config.gtk.enable
-      #then pkgs.pinentry-gnome3
-      #else pkgs.pinentry-tty;
+    #if config.gtk.enable
+    #then pkgs.pinentry-gnome3
+    #else pkgs.pinentry-tty;
     #defaultCacheTtl = 600;
     #maxCacheTtl = 7200;
     #extraConfig = "allow-preset-passphrase
-#pinentry-timeout 10";
+    #pinentry-timeout 10";
   };
 
   home.packages = lib.optional config.gtk.enable pkgs.gcr;

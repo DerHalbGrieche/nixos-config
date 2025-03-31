@@ -4,33 +4,32 @@
   ...
 }: let
   hyprlandConfig = pkgs.writeText "greetd-hyprlandConfig" ''
-      exec-once = ${pkgs.greetd.regreet}/bin/regreet; ${pkgs.hyprland}/bin/hyprctl dispatch exit
-misc {
-    disable_hyprland_logo = true
-    disable_splash_rendering = true
-    disable_hyprland_qtutils_check = true
-  }
-input {
-  kb_layout = us
-  kb_variant = colemak
-}
+          exec-once = ${pkgs.greetd.regreet}/bin/regreet; ${pkgs.hyprland}/bin/hyprctl dispatch exit
+    misc {
+        disable_hyprland_logo = true
+        disable_splash_rendering = true
+        disable_hyprland_qtutils_check = true
+      }
+    input {
+      kb_layout = us
+      kb_variant = colemak
+    }
   '';
- in {
-   
+in {
   services.greetd = {
     enable = true;
     settings = rec {
-        #command = "${pkgs.greetd.greetd}/bin/agreety --cmd Hyprland";
+      #command = "${pkgs.greetd.greetd}/bin/agreety --cmd Hyprland";
       #};
       initial_session = {
         command = "${pkgs.hyprland}/bin/Hyprland --config ${hyprlandConfig}";
         user = "vasilis";
-        };
+      };
       default_session = initial_session;
     };
   };
   environment.etc."greetd/enviroments".text = ''
-  Hyprland
+    Hyprland
   '';
 
   #programs.regreet = {

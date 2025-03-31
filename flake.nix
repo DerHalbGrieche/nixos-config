@@ -8,7 +8,6 @@
     # Home manager
     home-manager.url = "github:nix-community/home-manager";
     home-manager.inputs.nixpkgs.follows = "nixpkgs";
-
   };
 
   outputs = {
@@ -23,6 +22,7 @@
     inherit lib;
     templates = import ./templates;
     # NixOS configuration entrypoint
+    formatter = pkgs: pkgs.alejandra;
     # Available through 'nixos-rebuild --flake .#your-hostname'
     nixosConfigurations = {
       laptopUni = nixpkgs.lib.nixosSystem {
@@ -45,7 +45,7 @@
       "vasilis@laptopUni" = home-manager.lib.homeManagerConfiguration {
         pkgs = nixpkgs.legacyPackages.x86_64-linux; # Home-manager requires 'pkgs' instance
         extraSpecialArgs = {inherit inputs outputs;};
-        modules = [./home-manager/vasilis/home.nix ./home-manager/vasilis/laptopUni.nix ];
+        modules = [./home-manager/vasilis/home.nix ./home-manager/vasilis/laptopUni.nix];
       };
       "rizzler@server" = home-manager.lib.homeManagerConfiguration {
         pkgs = nixpkgs.legacyPackages.x86_64-linux;
@@ -55,7 +55,7 @@
       "vasilis@desktop" = home-manager.lib.homeManagerConfiguration {
         pkgs = nixpkgs.legacyPackages.x86_64-linux;
         extraSpecialArgs = {inherit inputs outputs;};
-        modules = [ ./home-manager/vasilis/home.nix ./home-manager/vasilis/desktop.nix ];
+        modules = [./home-manager/vasilis/home.nix ./home-manager/vasilis/desktop.nix];
       };
     };
   };
