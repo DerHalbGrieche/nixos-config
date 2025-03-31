@@ -25,10 +25,17 @@
       };
     };
     languages = {
+      language-server.copilot = {
+        command = "helix-gpt";
+      };
       language = [{
         name = "nix";
         language-servers = ["nixd"];
         roots = ["flake.nix"];
+      }
+      {
+        name = "rust";
+        language-servers = [ "rust-analyzer" "copilot" ];
       }];
     };
   };
