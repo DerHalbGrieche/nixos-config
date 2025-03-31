@@ -1,17 +1,19 @@
 # Edit this configuration file to define what should be installed on
 # your system.  Help is available in the configuration.nix(5) man page
 # and in the NixOS manual (accessible by running ‘nixos-help’).
-
-{ config, pkgs, lib, ... }:
-
-let
+{
+  config,
+  pkgs,
+  lib,
+  ...
+}: let
   # Define the ports you want to funnel
-  funnelPorts = [ 22 81 ];
+  funnelPorts = [22 81];
 in {
-  imports =
-    [ # Include the results of the hardware scan.
-      ./hardware-configuration.nix
-    ];
+  imports = [
+    # Include the results of the hardware scan.
+    ./hardware-configuration.nix
+  ];
 
   # Bootloader.
   boot.loader.grub = {
@@ -20,15 +22,13 @@ in {
     useOSProber = true;
   };
 
-
   services.tailscale.enable = true;
-
 
   # Define a systemd service for Tailscale Funnel
   systemd.services.tailscale-funnel = {
     description = "Tailscale Funnel for Multiple Ports";
-    after = [ "network.target" "tailscaled.service" ];
-    wants = [ "network.target" "tailscaled.service" ];
+    after = ["network.target" "tailscaled.service"];
+    wants = ["network.target" "tailscaled.service"];
 
     # Script to run tailscale funnel for each port
     serviceConfig = {
@@ -39,17 +39,16 @@ in {
     };
 
     # Ensure the service is enabled and starts automatically
-    wantedBy = [ "multi-user.target" ];
+    wantedBy = ["multi-user.target"];
     enable = true;
   };
-
 
   services.logind.powerKey = "ignore";
   security.sudo.wheelNeedsPassword = false;
 
   networking.hostName = "server"; # Define your hostname.
   # networking.wireless.enable = true;  # Enables wireless support via wpa_supplicant.
-  nix.settings.experimental-features = [ "nix-command" "flakes" ];
+  nix.settings.experimental-features = ["nix-command" "flakes"];
   # Configure network proxy if necessary
   # networking.proxy.default = "http://user:password@proxy:port/";
   # networking.proxy.noProxy = "127.0.0.1,localhost,internal.domain";
@@ -58,8 +57,8 @@ in {
   networking.networkmanager.enable = true;
   networking.firewall = {
     enable = true;
-    allowedTCPPorts = [ 22 ];
-    allowedUDPPorts = [ 22 ];
+    allowedTCPPorts = [22];
+    allowedUDPPorts = [22];
   };
 
   # Set your time zone.
@@ -112,9 +111,9 @@ in {
   users.users.rizzler = {
     isNormalUser = true;
     description = "rizzler";
-    extraGroups = [ "networkmanager" "wheel" ];
+    extraGroups = ["networkmanager" "wheel"];
     packages = with pkgs; [
-    #  thunderbird
+      #  thunderbird
       cloudflared
     ];
     shell = pkgs.fish;
@@ -133,29 +132,28 @@ in {
   # List packages installed in system profile. To search, run:
   # $ nix search wget
   environment.systemPackages = with pkgs; [
-  #  vim # Do not forget to add an editor to edit configuration.nix! The Nano editor is also installed by default.
-  #  wget
-     vim
-     wget
-     curl
-     direnv
-     git
-     htop
-     home-manager
-     
+    #  vim # Do not forget to add an editor to edit configuration.nix! The Nano editor is also installed by default.
+    #  wget
+    vim
+    wget
+    curl
+    direnv
+    git
+    htop
+    home-manager
   ];
 
   services.openssh = {
-  enable = true;
-  ports = [ 22 ];
-  settings = {
-    PasswordAuthentication = false;
-    AllowUsers = ["rizzler"]; # Allows all users by default. Can be [ "user1" "user2" ]
-    UseDns = true;
-    X11Forwarding = false;
-    PermitRootLogin = "prohibit-password"; # "yes", "without-password", "prohibit-password", "forced-commands-only", "no"
+    enable = true;
+    ports = [22];
+    settings = {
+      PasswordAuthentication = false;
+      AllowUsers = ["rizzler"]; # Allows all users by default. Can be [ "user1" "user2" ]
+      UseDns = true;
+      X11Forwarding = false;
+      PermitRootLogin = "prohibit-password"; # "yes", "without-password", "prohibit-password", "forced-commands-only", "no"
+    };
   };
-};
   # Some programs need SUID wrappers, can be configured further or are
   # started in user sessions.
   # programs.mtr.enable = true;
@@ -182,5 +180,4 @@ in {
   # Before changing this value read the documentation for this option
   # (e.g. man configuration.nix or on https://nixos.org/nixos/options.html).
   system.stateVersion = "25.05"; # Did you read the comment?
-
 }

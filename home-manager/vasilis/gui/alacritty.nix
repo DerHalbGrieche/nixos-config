@@ -1,45 +1,40 @@
-{
-  pkgs,
-  ...
-}: {
+{pkgs, ...}: {
   programs.alacritty = {
-   enable = true;
-   settings = {
-    
-    font.normal = {
-      family = "Fira Code";
-      style = "Regular";
-    };
+    enable = true;
+    settings = {
+      font.normal = {
+        family = "Fira Code";
+        style = "Regular";
+      };
 
-    colors.primary = {
-      background = "#1e282d";
-      foreground = "#c4c7d1";
-    };
+      colors.primary = {
+        background = "#1e282d";
+        foreground = "#c4c7d1";
+      };
 
-    colors.normal = {
-      black   = "#666666";
-      red     = "#eb606b";
-      green   = "#c3e88d";
-      yellow  = "#f7eb95";
-      blue    = "#80cbc4";
-      magenta = "#ff2f90";
-      cyan    = "#aeddff";
-      white   = "#ffffff";
-    };
+      colors.normal = {
+        black = "#666666";
+        red = "#eb606b";
+        green = "#c3e88d";
+        yellow = "#f7eb95";
+        blue = "#80cbc4";
+        magenta = "#ff2f90";
+        cyan = "#aeddff";
+        white = "#ffffff";
+      };
 
-    colors.bright = {
-      black   = "#ff262b";
-      red     = "#eb606b";
-      green   = "#c3e88d";
-      yellow  = "#f7eb95";
-      blue    = "#7dc6bf";
-      magenta = "#6c71c4";
-      cyan    = "#35434d";
-      white   = "#ffffff";
-    };
+      colors.bright = {
+        black = "#ff262b";
+        red = "#eb606b";
+        green = "#c3e88d";
+        yellow = "#f7eb95";
+        blue = "#7dc6bf";
+        magenta = "#6c71c4";
+        cyan = "#35434d";
+        white = "#ffffff";
+      };
 
-    window.opacity = 0.5;
-
+      window.opacity = 0.5;
     };
   };
 }

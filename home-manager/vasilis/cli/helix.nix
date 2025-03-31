@@ -1,19 +1,19 @@
-{
-  pkgs,
-  ...
-}: {
+{pkgs, ...}: {
   programs.helix = {
     enable = true;
     extraPackages = with pkgs; [
-    helix-gpt
+      helix-gpt
+      nixd
+      alejandra
+      nil
     ];
     defaultEditor = true;
     settings = {
       theme = "base16_transparent";
       editor.cursor-shape = {
-      normal = "block";
-      insert = "bar";
-      select = "underline";
+        normal = "block";
+        insert = "bar";
+        select = "underline";
       };
       editor = {
         line-number = "relative";
@@ -28,12 +28,15 @@
       language-server.copilot = {
         command = "helix-gpt";
       };
-      language = [{
-        name = "nix";
-        language-servers = ["nixd"];
-        roots = ["flake.nix"];
-      }
-      {
+      language = [
+{
+          name = "nix";
+          auto-format = true;
+          roots = ["flake.nix"];
+          formatter = {
+            command = "alejandra";
+          };
+        }      {
         name = "rust";
         language-servers = [ "rust-analyzer" "copilot" ];
       }];

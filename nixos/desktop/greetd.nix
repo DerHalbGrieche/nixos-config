@@ -4,20 +4,19 @@
   ...
 }: let
   hyprlandConfig = pkgs.writeText "greetd-hyprlandConfig" ''
-      exec-once = regreet; hyprctl dispatch exit
-      monitor = DP-3, 2560x1440@165, 0x0, 1
-misc {
-    disable_hyprland_logo = true
-    disable_splash_rendering = true
-    disable_hyprland_qtutils_check = true
-  }
-input {
-  kb_layout = us
-  kb_variant = colemak
-}
+          exec-once = regreet; hyprctl dispatch exit
+          monitor = DP-3, 2560x1440@165, 0x0, 1
+    misc {
+        disable_hyprland_logo = true
+        disable_splash_rendering = true
+        disable_hyprland_qtutils_check = true
+      }
+    input {
+      kb_layout = us
+      kb_variant = colemak
+    }
   '';
- in {
-   
+in {
   services.greetd = {
     enable = true;
     settings = {
@@ -25,7 +24,7 @@ input {
         command = "Hyprland";
         user = "vasilis";
       };
-     };
+    };
   };
   programs.regreet = {
     enable = true;
@@ -46,11 +45,10 @@ input {
       package = pkgs.fira-code;
       size = 10;
     };
-    cageArgs = [ "-s" "-m" "last" ]
-    ;
+    cageArgs = ["-s" "-m" "last"];
   };
   environment.etc."greetd/enviroments".text = ''
-  Hyprland
+    Hyprland
   '';
 
   #programs.regreet = {

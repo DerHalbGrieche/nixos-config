@@ -1,6 +1,4 @@
-{
-  ...
-}: {
+{...}: {
   imports = [
     ./cli/git.nix
     ./cli/pass.nix
@@ -20,6 +18,5 @@
     ./desktop/qutebrowser.nix
     ./desktop/syncthing.nix
     ./gui/alacritty.nix
-
   ];
 }

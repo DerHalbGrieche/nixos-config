@@ -3,11 +3,11 @@
   lib,
   ...
 }: {
-  home.packages = [ pkgs.dconf pkgs.fira-code ];
+  home.packages = [pkgs.dconf pkgs.fira-code];
   dconf.settings = {
     "org/gnome/desktop/interface" = {
-        color-scheme = "prefer-dark";
-      };
+      color-scheme = "prefer-dark";
+    };
   };
   gtk = {
     enable = true;

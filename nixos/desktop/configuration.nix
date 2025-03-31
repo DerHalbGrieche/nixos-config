@@ -1,17 +1,18 @@
 # Edit this configuration file to define what should be installed on
 # your system.  Help is available in the configuration.nix(5) man page
 # and in the NixOS manual (accessible by running ‘nixos-help’).
-
-{ config, pkgs, ... }:
-
 {
-  imports =
-    [ # Include the results of the hardware scan.
-      ./hardware-configuration.nix
-      ./greetd.nix
-      ./nix.nix
-      #./hyprland.nix
-    ];
+  config,
+  pkgs,
+  ...
+}: {
+  imports = [
+    # Include the results of the hardware scan.
+    ./hardware-configuration.nix
+    ./greetd.nix
+    ./nix.nix
+    #./hyprland.nix
+  ];
 
   # Bootloader.
   boot.loader.grub = {
@@ -26,7 +27,7 @@
 
   networking.hostName = "vasilispc"; # Define your hostname.
   # networking.wireless.enable = true;  # Enables wireless support via wpa_supplicant.
-  nix.settings.experimental-features = [ "nix-command" "flakes" ];
+  nix.settings.experimental-features = ["nix-command" "flakes"];
   # Configure network proxy if necessary
   # networking.proxy.default = "http://user:password@proxy:port/";
   # networking.proxy.noProxy = "127.0.0.1,localhost,internal.domain";
@@ -35,12 +36,12 @@
   networking.networkmanager.enable = true;
   networking.firewall = {
     enable = true;
-    allowedTCPPorts = [ 53317 22000 4444 24070 ];
-    allowedUDPPorts = [ 53317 22000 21027 4444 ];
+    allowedTCPPorts = [53317 22000 4444 24070];
+    allowedUDPPorts = [53317 22000 21027 4444];
   };
 
   networking.hosts = {
-    "127.0.0.1" = [ "lolcathost" ];
+    "127.0.0.1" = ["lolcathost"];
   };
 
   # Set your time zone.
@@ -79,7 +80,7 @@
 
   services.flatpak.enable = true;
   xdg.portal.enable = true;
-  xdg.portal.extraPortals = [ pkgs.xdg-desktop-portal-hyprland ];
+  xdg.portal.extraPortals = [pkgs.xdg-desktop-portal-hyprland];
   xdg.portal.config = {
     common = {
       default = [
@@ -88,7 +89,7 @@
     };
   };
   # Enable sound with pipewire.
-  hardware.ckb-next.enable =  true;
+  hardware.ckb-next.enable = true;
   hardware.bluetooth.enable = true;
   hardware.bluetooth.powerOnBoot = true;
   services.blueman.enable = true;
@@ -124,9 +125,9 @@
   users.users.vasilis = {
     isNormalUser = true;
     description = "vasilis";
-    extraGroups = [ "networkmanager" "wheel" ];
+    extraGroups = ["networkmanager" "wheel"];
     packages = with pkgs; [
-    #  thunderbird
+      #  thunderbird
     ];
     shell = pkgs.fish;
   };
@@ -145,16 +146,15 @@
   # List packages installed in system profile. To search, run:
   # $ nix search wget
   environment.systemPackages = with pkgs; [
-  #  vim # Do not forget to add an editor to edit configuration.nix! The Nano editor is also installed by default.
-  #  wget
-     vim
-     wget
-     curl
-     direnv
-     git
-     htop
-     home-manager
-     
+    #  vim # Do not forget to add an editor to edit configuration.nix! The Nano editor is also installed by default.
+    #  wget
+    vim
+    wget
+    curl
+    direnv
+    git
+    htop
+    home-manager
   ];
 
   # Some programs need SUID wrappers, can be configured further or are
@@ -183,5 +183,4 @@
   # Before changing this value read the documentation for this option
   # (e.g. man configuration.nix or on https://nixos.org/nixos/options.html).
   system.stateVersion = "25.05"; # Did you read the comment?
-
 }
