@@ -29,17 +29,19 @@
         command = "helix-gpt";
       };
       language = [
-{
+        {
           name = "nix";
           auto-format = true;
           roots = ["flake.nix"];
           formatter = {
             command = "alejandra";
           };
-        }      {
-        name = "rust";
-        language-servers = [ "rust-analyzer" "copilot" ];
-      }];
+        }
+        {
+          name = "rust";
+          language-servers = ["rust-analyzer" "copilot"];
+        }
+      ];
     };
   };
 }
