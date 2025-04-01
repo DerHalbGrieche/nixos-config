@@ -66,7 +66,6 @@
     jq
     wine
     osu-lazer-bin
-    quickemu
     ungoogled-chromium
     prismlauncher
   ];
