@@ -51,6 +51,9 @@ in {
         accel_profile = config.machineSettings.accel_profile;
         "kb_layout" = "us";
         "kb_variant" = "colemak";
+        touchpad = {
+          disable_while_typing = false;
+        };
       };
       bindm = [
         "$mod, mouse:272, movewindow"
