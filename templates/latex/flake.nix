@@ -5,21 +5,13 @@
     nixpkgs.url = "github:nixos/nixpkgs?ref=nixos-unstable";
   };
 
-  outputs = {
-    self,
-    nixpkgs,
-  }: let
-    forAllSystems = nixpkgs.lib.genAttrs ["x86_64-linux" "aarch64-linux"];
-    pkgsFor = nixpkgs.legacyPackages;
-  in rec {
-    packages = forAllSystems (system: {
-      default = pkgsFor.${system}.callPackage ./default.nix {};
-    });
-
-    devShells =
-      forAllSystems
-      (system: {default = pkgsFor.${system}.callPackage ./shell.nix {};});
-
-    hydraJobs = packages;
+  outputs = {nixpkgs, ...}: {
+    devShells.x86_64-linux = let
+      pkgs = nixpkgs.legacyPackages.x86_64-linux;
+    in {
+      default = pkgs.mkShell {
+        packages = with pkgs; [texlab texliveFull];
+      };
+    };
   };
 }
