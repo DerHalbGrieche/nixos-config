@@ -7,4 +7,5 @@
   python.path = ./python;
   rust.path = ./rust;
   wasm.path = ./wasm;
+  latex.path = ./latex;
 }
