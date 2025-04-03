@@ -13,4 +13,7 @@
   };
   nixpkgs.config.allowUnfree = true;
   programs.nix-ld.enable = true;
+  networking.hosts = {
+    "127.0.0.1" = ["lolcathost"];
+  };
 }
