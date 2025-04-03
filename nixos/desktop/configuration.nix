@@ -11,6 +11,7 @@
     ./hardware-configuration.nix
     ./greetd.nix
     ./nix.nix
+    ../common/default.nix
     #./hyprland.nix
   ];
 
@@ -67,10 +68,6 @@
   # services.xserver.enable = true;
 
   # Configure keymap in X11
-  services.xserver.xkb = {
-    layout = "us";
-    variant = "colemak";
-  };
 
   console.useXkbConfig = true;
 
@@ -110,10 +107,6 @@
 
   # Enable touchpad support (enabled default in most desktopManager).
   # services.xserver.libinput.enable = true;
-  programs.fish = {
-    enable = true;
-    interactiveShellInit = " set -g fish_greeting ";
-  };
   programs.steam = {
     enable = true;
     protontricks.enable = true;
@@ -137,11 +130,9 @@
   # services.displayManager.autoLogin.user = "vasilis";
 
   # Install firefox.
-  programs.nix-ld.enable = true;
   programs.firefox.enable = true;
 
   # Allow unfree packages
-  nixpkgs.config.allowUnfree = true;
 
   # List packages installed in system profile. To search, run:
   # $ nix search wget
