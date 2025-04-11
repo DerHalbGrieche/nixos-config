@@ -16,4 +16,12 @@
   networking.hosts = {
     "127.0.0.1" = ["lolcathost"];
   };
+  programs.steam = {
+    enable = true;
+    protontricks.enable = true;
+    gamescopeSession.enable = true;
+    localNetworkGameTransfers.openFirewall = true;
+    extest.enable = true;
+    remotePlay.openFirewall = true;
+  };
 }

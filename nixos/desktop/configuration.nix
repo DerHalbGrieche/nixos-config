@@ -107,11 +107,6 @@
 
   # Enable touchpad support (enabled default in most desktopManager).
   # services.xserver.libinput.enable = true;
-  programs.steam = {
-    enable = true;
-    protontricks.enable = true;
-    gamescopeSession.enable = true;
-  };
   programs.gamescope.enable = true;
   programs.direnv.enable = true;
   # Define a user account. Don't forget to set a password with ‘passwd’.
