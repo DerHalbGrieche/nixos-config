@@ -41,6 +41,12 @@
           name = "rust";
           language-servers = ["rust-analyzer" "copilot"];
         }
+        {
+          name = "latex";
+          formatter = {
+            command = "tex-fmt";
+          };
+        }
       ];
     };
   };

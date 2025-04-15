@@ -30,7 +30,7 @@
 
     # Dev shell for editing with tools like texlab.
     devShells.x86_64-linux.default = pkgs.mkShell {
-      packages = with pkgs; [texlab texliveFull];
+      packages = with pkgs; [texlab texliveFull tex-fmt];
     };
   };
 }
