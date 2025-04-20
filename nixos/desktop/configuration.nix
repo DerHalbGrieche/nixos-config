@@ -3,6 +3,7 @@
 # and in the NixOS manual (accessible by running ‘nixos-help’).
 {
   config,
+  inputs,
   pkgs,
   ...
 }: {
@@ -134,7 +135,7 @@
   environment.systemPackages = with pkgs; [
     #  vim # Do not forget to add an editor to edit configuration.nix! The Nano editor is also installed by default.
     #  wget
-    vim
+    inputs.nixvim.packages.${system}.default
     wget
     curl
     direnv
