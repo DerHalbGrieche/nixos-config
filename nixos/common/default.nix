@@ -1,4 +1,8 @@
-{pkgs, ...}: {
+{
+  pkgs,
+  inputs,
+  ...
+}: {
   virtualisation.docker = {
     enable = true;
     rootless.enable = true;
@@ -24,4 +28,7 @@
     extest.enable = true;
     remotePlay.openFirewall = true;
   };
+  environment.systemPackages = [
+    inputs.nixvim.packages.x86_64-linux.default
+  ];
 }

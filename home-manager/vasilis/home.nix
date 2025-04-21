@@ -45,6 +45,7 @@
     sessionVariables = {
       "XDG_FILE_MANAGER" = "nemo";
       "GTK_USE_PORTAL" = "1";
+      "GAMESCOPE_WAYLAND_DISPLAY" = "$WAYLAND_DISPLAY";
     };
   };
 
