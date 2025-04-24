@@ -24,11 +24,20 @@
     templates = import ./templates;
     # NixOS configuration entrypoint
     formatter = pkgs: pkgs.alejandra;
+    nixosModule = {
+      nixpkgs.overlays = [
+        # Override default neovim with the one from nixvim flake
+        (final: prev: {
+          neovim = inputs.nixvim.packages.${prev.system}.default;
+        })
+      ];
+    };
+
     # Available through 'nixos-rebuild --flake .#your-hostname'
     nixosConfigurations = {
       laptopUni = nixpkgs.lib.nixosSystem {
         specialArgs = {inherit inputs outputs;};
-        modules = [./nixos/laptopUni/configuration.nix];
+        modules = [./nixos/laptopUni/configuration.nix self.nixosModule];
       };
       server = nixpkgs.lib.nixosSystem {
         specialArgs = {inherit inputs outputs;};
@@ -36,7 +45,7 @@
       };
       desktop = nixpkgs.lib.nixosSystem {
         specialArgs = {inherit inputs outputs;};
-        modules = [./nixos/desktop/configuration.nix];
+        modules = [./nixos/desktop/configuration.nix self.nixosModule];
       };
     };
 
