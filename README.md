@@ -91,21 +91,3 @@ nix flake update
 ## License
 
 MIT
-
-```
-
-This README provides a comprehensive overview of your NixOS configuration project. It includes:
-
-1. Eye-catching badges to showcase the technologies used
-2. A clear overview of the project structure and purpose
-3. Details about the different system configurations (laptop, desktop, server)
-4. Information on the directory structure and modular design
-5. Usage instructions for common operations
-6. List of notable software and key features
-7. A clean, professional layout with proper markdown formatting
-
-The README highlights the strengths of your configuration, such as its modularity, the use of flakes for reproducibility, and the comprehensive setup across multiple machines with different user configurations.
-
-**Generation complete!** Please review the code suggestions above.
-
-```
