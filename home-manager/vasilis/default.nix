@@ -6,7 +6,7 @@
     ./cli/nix-index.nix
     #./cli/podman.nix
     #./cli/neovim.nix
-    ./cli/helix.nix
+    # ./cli/helix.nix
     #./cli/zellij.nix
     ./gui/firefox.nix
     # ./gui/vscode.nix
