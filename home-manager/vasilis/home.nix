@@ -73,8 +73,14 @@
   fonts.fontconfig.enable = true;
   services.arrpc.enable = true;
   # Enable home-manager and git
-  programs.home-manager.enable = true;
+
   programs.git.enable = true;
+  programs.fish = {
+    enable = true;
+    shellAliases = {
+      ssh = "kitten ssh";
+    };
+  };
   xdg.enable = true;
 
   # Nicely reload system units when changing configs
