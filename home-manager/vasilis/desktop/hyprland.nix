@@ -35,6 +35,9 @@ in {
       decoration = {
         rounding = 5;
         dim_inactive = true;
+        active_opacity = 0.85;
+        inactive_opacity = 0.85;
+        fullscreen_opacity = 1.00;
       };
       windowrulev2 = ["workspace 3, class:vesktop" "workspace 1, class:qutebrowserorg.qutebrowser.qutebrowser"];
       "$mod" = "SUPER";

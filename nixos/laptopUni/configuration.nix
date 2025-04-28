@@ -38,8 +38,8 @@
   networking.networkmanager.enable = true;
   networking.firewall = {
     enable = true;
-    allowedTCPPorts = [53317 22000 4444];
-    allowedUDPPorts = [53317 22000 21027 4444];
+    allowedTCPPorts = [53317 22000 4444 8080];
+    allowedUDPPorts = [53317 22000 21027 4444 8080];
   };
 
   # Set your time zone.

@@ -17,6 +17,6 @@
     ./desktop/gtk.nix
     ./desktop/qutebrowser.nix
     ./desktop/syncthing.nix
-    ./gui/alacritty.nix
+    # ./gui/alacritty.nix
   ];
 }
