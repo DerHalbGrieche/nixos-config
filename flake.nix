@@ -4,7 +4,7 @@
   inputs = {
     # Nixpkgs
     nixpkgs.url = "github:nixos/nixpkgs/nixos-unstable";
-
+    nixos-hardware.url = "github:nixos/nixos-hardware/master";
     nixvim.url = "github:derhalbgrieche/nixvim";
     # Home manager
     home-manager.url = "github:nix-community/home-manager";
@@ -37,7 +37,7 @@
     nixosConfigurations = {
       laptopUni = nixpkgs.lib.nixosSystem {
         specialArgs = {inherit inputs outputs;};
-        modules = [./nixos/laptopUni/configuration.nix self.nixosModule];
+        modules = [./nixos/laptopUni/configuration.nix self.nixosModule inputs.nixos-hardware.nixosModules.lenovo-thinkpad-e15-intel];
       };
       server = nixpkgs.lib.nixosSystem {
         specialArgs = {inherit inputs outputs;};

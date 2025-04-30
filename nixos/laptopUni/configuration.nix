@@ -23,6 +23,7 @@
   boot.loader.efi.canTouchEfiVariables = true;
   services.tailscale.enable = true;
   services.logind.powerKey = "ignore";
+  services.fwupd.enable = true;
   security.sudo.wheelNeedsPassword = false;
 
   #docker

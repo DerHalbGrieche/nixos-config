@@ -65,11 +65,11 @@
         ]
       },
       "locked": {
-        "lastModified": 1745810134,
-        "narHash": "sha256-WfnYH/i7DFzn4SESQfWviXiNUZjohZhzODqLwKYHIPI=",
+        "lastModified": 1745987135,
+        "narHash": "sha256-8Up4QPuMZEJBU0eefAY+nUe7DYKQQzvaHnMpNdwRgKA=",
         "owner": "nix-community",
         "repo": "home-manager",
-        "rev": "be7cf1709b469a2a2c62169172a167d1fed3509f",
+        "rev": "d2b3e6c83d457aa0e7f9344c61c3fed32bad0f7e",
         "type": "github"
       },
       "original": {
@@ -108,13 +108,29 @@
         "type": "github"
       }
     },
+    "nixos-hardware": {
+      "locked": {
+        "lastModified": 1745955289,
+        "narHash": "sha256-mmV2oPhQN+YF2wmnJzXX8tqgYmUYXUj3uUUBSTmYN5o=",
+        "owner": "nixos",
+        "repo": "nixos-hardware",
+        "rev": "72081c9fbbef63765ae82bff9727ea79cc86bd5b",
+        "type": "github"
+      },
+      "original": {
+        "owner": "nixos",
+        "ref": "master",
+        "repo": "nixos-hardware",
+        "type": "github"
+      }
+    },
     "nixpkgs": {
       "locked": {
-        "lastModified": 1745526057,
-        "narHash": "sha256-ITSpPDwvLBZBnPRS2bUcHY3gZSwis/uTe255QgMtTLA=",
+        "lastModified": 1745930157,
+        "narHash": "sha256-y3h3NLnzRSiUkYpnfvnS669zWZLoqqI6NprtLQ+5dck=",
         "owner": "nixos",
         "repo": "nixpkgs",
-        "rev": "f771eb401a46846c1aebd20552521b233dd7e18b",
+        "rev": "46e634be05ce9dc6d4db8e664515ba10b78151ae",
         "type": "github"
       },
       "original": {
@@ -178,11 +194,11 @@
         "nixvim": "nixvim_2"
       },
       "locked": {
-        "lastModified": 1745820836,
-        "narHash": "sha256-XacL+9tTQx7P/PMS1yqPPWV8ulnUE/sLOdTRNPki0oc=",
+        "lastModified": 1745843045,
+        "narHash": "sha256-yfJr8zF1gXdQBpPSynK1R5iPDRWEm65z9VyX4mcywHc=",
         "owner": "derhalbgrieche",
         "repo": "nixvim",
-        "rev": "90936e0712467c51ad7b81d3e8596856a5f82270",
+        "rev": "1b169f62a454d5d7c073cff1f5705c06252b2916",
         "type": "github"
       },
       "original": {
@@ -238,6 +254,7 @@
     "root": {
       "inputs": {
         "home-manager": "home-manager",
+        "nixos-hardware": "nixos-hardware",
         "nixpkgs": "nixpkgs",
         "nixvim": "nixvim"
       }
