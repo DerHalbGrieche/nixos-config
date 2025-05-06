@@ -44,6 +44,8 @@ in {
       "exec-once" = [
         "waybar"
         "wl-clipboard"
+        "dbus-update-activation-environment --systemd WAYLAND_DISPLAY XDG_CURRENT_DESKTOP"
+        "systemctl --user import-environment WAYLAND_DISPLAY XDG_CURRENT_DESKTOP"
         "vesktop --ozone-platform=wayland"
         "hyprctl setcursor macOS 24"
         "systemctl --user start hyprpolkitagent"

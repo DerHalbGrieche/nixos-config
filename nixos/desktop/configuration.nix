@@ -79,13 +79,6 @@
   services.flatpak.enable = true;
   xdg.portal.enable = true;
   xdg.portal.extraPortals = [pkgs.xdg-desktop-portal-hyprland];
-  xdg.portal.config = {
-    common = {
-      default = [
-        "gtk"
-      ];
-    };
-  };
   # Enable sound with pipewire.
   hardware.ckb-next.enable = true;
   hardware.bluetooth.enable = true;

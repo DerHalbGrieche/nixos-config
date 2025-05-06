@@ -65,10 +65,14 @@
     fira-code
     pavucontrol
     jq
-    wine
+    wineWowPackages.waylandFull
     osu-lazer-bin
     ungoogled-chromium
     prismlauncher
+    lutris
+    winetricks
+    umu-launcher
+    steamtinkerlaunch
   ];
   fonts.fontconfig.enable = true;
   services.arrpc.enable = true;
