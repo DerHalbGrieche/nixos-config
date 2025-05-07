@@ -28,6 +28,11 @@
     options = ["fmask=0077" "dmask=0077"];
   };
 
+  fileSystems."/home/vasilis/data" = {
+    device = "/dev/disk/by-uuid/364bdc6a-7ad0-47cc-a07e-449e6db4f645";
+    fsType = "ext4";
+  };
+
   swapDevices = [
     {device = "/dev/disk/by-uuid/072dcf14-9644-4d5c-987c-517e285e4f7e";}
   ];

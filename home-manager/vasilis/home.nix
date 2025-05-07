@@ -73,6 +73,7 @@
     winetricks
     umu-launcher
     steamtinkerlaunch
+    steam-rom-manager
   ];
   fonts.fontconfig.enable = true;
   services.arrpc.enable = true;
