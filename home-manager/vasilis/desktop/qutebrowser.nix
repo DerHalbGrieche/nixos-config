@@ -24,5 +24,5 @@
     "x-scheme-handler/http" = "org.qutebrowser.qutebrowser.desktop";
     "x-scheme-handler/https" = "org.qutebrowser.qutebrowser.desktop";
   };
-  environment.sessionVariables.DEFAULT_BROWSER = "qutebrowser";
+  home.sessionVariables.DEFAULT_BROWSER = "qutebrowser";
 }
