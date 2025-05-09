@@ -49,8 +49,8 @@ in {
         "vesktop --ozone-platform=wayland"
         "hyprctl setcursor macOS 24"
         "systemctl --user start hyprpolkitagent"
-        "qutebrowser"
         "hypridle"
+        "qutebrowser --nowindow"
       ];
       input = {
         accel_profile = config.machineSettings.accel_profile;
