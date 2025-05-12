@@ -50,7 +50,6 @@ in {
         "hyprctl setcursor macOS 24"
         "systemctl --user start hyprpolkitagent"
         "hypridle"
-        "qutebrowser --nowindow"
       ];
       input = {
         accel_profile = config.machineSettings.accel_profile;
@@ -83,7 +82,7 @@ in {
           "$mod&Shift, M, exit"
           "$mod, Space, exec, rofi -show drun"
           "$mod, Q, killactive"
-          "$mod, F, exec, qutebrowser"
+          "$mod, F, exec, firefox"
           "$mod, period, exec, emote"
           ", XF86MonBrightnessDown, exec, brightnessctl set 10%-"
           ", XF86MonBrightnessUp, exec, brightnessctl set +10%"

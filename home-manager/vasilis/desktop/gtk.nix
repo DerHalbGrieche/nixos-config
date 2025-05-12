@@ -10,40 +10,6 @@
     };
   };
 
-  # Configure XDG portal for GTK file picker
-  xdg.portal = {
-    enable = true;
-    xdgOpenUsePortal = true;
-    extraPortals = [
-      pkgs.xdg-desktop-portal-gtk
-    ];
-    config = {
-      common = {
-        default = ["gtk"];
-      };
-      hyprland = {
-        default = ["gtk"];
-        "org.freedesktop.impl.portal.Screenshot" = ["hyprland"];
-        "org.freedesktop.impl.portal.ScreenCast" = ["hyprland"];
-      };
-    };
-  };
-
-  systemd.user.services.xdg-desktop-portal-gtk = {
-    Unit = {
-      Description = "Portal service (GTK/GNOME implementation)";
-      PartOf = ["graphical-session.target"];
-    };
-    Service = {
-      Environment = "GTK_USE_PORTAL=1";
-      ExecStart = "${pkgs.xdg-desktop-portal-gtk}/libexec/xdg-desktop-portal-gtk";
-      Restart = "on-failure";
-    };
-    Install = {
-      WantedBy = ["graphical-session.target"];
-    };
-  };
-
   gtk = {
     enable = true;
     iconTheme = {
@@ -65,7 +31,4 @@
       size = 10;
     };
   };
-  #qt.enable = true;
-  #qt.style.name = "material";
-  #qt.platformTheme = "gtk2";
 }

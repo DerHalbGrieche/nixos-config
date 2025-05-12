@@ -9,6 +9,10 @@
     # Home manager
     home-manager.url = "github:nix-community/home-manager";
     home-manager.inputs.nixpkgs.follows = "nixpkgs";
+    nur = {
+      url = "github:nix-community/NUR";
+      inputs.nixpkgs.follows = "nixpkgs";
+    };
   };
 
   outputs = {
@@ -29,6 +33,7 @@
         # Override default neovim with the one from nixvim flake
         (final: prev: {
           neovim = inputs.nixvim.packages.${prev.system}.default;
+          nur = inputs.nur.legacyPackages.${prev.system};
         })
       ];
     };
@@ -55,7 +60,7 @@
       "vasilis@laptopUni" = home-manager.lib.homeManagerConfiguration {
         pkgs = nixpkgs.legacyPackages.x86_64-linux; # Home-manager requires 'pkgs' instance
         extraSpecialArgs = {inherit inputs outputs;};
-        modules = [./home-manager/vasilis/home.nix ./home-manager/vasilis/laptopUni.nix];
+        modules = [./home-manager/vasilis/home.nix ./home-manager/vasilis/laptopUni.nix self.nixosModule];
       };
       "rizzler@server" = home-manager.lib.homeManagerConfiguration {
         pkgs = nixpkgs.legacyPackages.x86_64-linux;
@@ -65,7 +70,7 @@
       "vasilis@desktop" = home-manager.lib.homeManagerConfiguration {
         pkgs = nixpkgs.legacyPackages.x86_64-linux;
         extraSpecialArgs = {inherit inputs outputs;};
-        modules = [./home-manager/vasilis/home.nix ./home-manager/vasilis/desktop.nix];
+        modules = [./home-manager/vasilis/home.nix ./home-manager/vasilis/desktop.nix self.nixosModule];
       };
     };
   };
