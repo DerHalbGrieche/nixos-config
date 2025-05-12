@@ -5,6 +5,14 @@
 }: {
   programs.firefox = {
     enable = true;
+    policies = {
+      BlockAboutConfig = true;
+      DefaultDownloadDirectory = "\${home}/Downloads";
+      BlockAboutProfiles = true;
+      DisableFireefoxAccounts = true;
+      DisableTelemetry = true;
+      DisablePocket = true;
+    };
     profiles."vasilis" = {
       extensions = {
         force = true;
@@ -17,6 +25,7 @@
       };
       search = {
         default = "ddg";
+        force = true;
         engines = {
           nix-packages = {
             name = "Nix Packages";
@@ -56,6 +65,13 @@
           bing.metaData.hidden = true;
           google.metaData.alias = "@g";
         };
+      };
+      settings = {
+        "browser.tabs.groups.enabled" = true;
+        "browser.tabs.groups.smart.enabled" = true;
+        "browser.tabs.groups.smart.optin" = true;
+
+        "sidebar.verticalTabs" = true;
       };
     };
   };
