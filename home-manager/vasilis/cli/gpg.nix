@@ -8,7 +8,7 @@
     enable = true;
     enableSshSupport = true;
     enableExtraSocket = true;
-    pinentryPackage = pkgs.pinentry-rofi;
+    pinentry.package = pkgs.pinentry-rofi;
     #if config.gtk.enable
     #then pkgs.pinentry-gnome3
     #else pkgs.pinentry-tty;

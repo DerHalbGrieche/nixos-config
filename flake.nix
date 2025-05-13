@@ -28,21 +28,13 @@
     templates = import ./templates;
     # NixOS configuration entrypoint
     formatter = pkgs: pkgs.alejandra;
-    nixosModule = {
-      nixpkgs.overlays = [
-        # Override default neovim with the one from nixvim flake
-        (final: prev: {
-          neovim = inputs.nixvim.packages.${prev.system}.default;
-          nur = inputs.nur.legacyPackages.${prev.system};
-        })
-      ];
-    };
+    overlays = import ./overlays {inherit inputs outputs;};
 
     # Available through 'nixos-rebuild --flake .#your-hostname'
     nixosConfigurations = {
       laptopUni = nixpkgs.lib.nixosSystem {
         specialArgs = {inherit inputs outputs;};
-        modules = [./nixos/laptopUni/configuration.nix self.nixosModule inputs.nixos-hardware.nixosModules.lenovo-thinkpad-e15-intel];
+        modules = [./nixos/laptopUni/configuration.nix inputs.nixos-hardware.nixosModules.lenovo-thinkpad-e15-intel];
       };
       server = nixpkgs.lib.nixosSystem {
         specialArgs = {inherit inputs outputs;};
@@ -50,7 +42,7 @@
       };
       desktop = nixpkgs.lib.nixosSystem {
         specialArgs = {inherit inputs outputs;};
-        modules = [./nixos/desktop/configuration.nix self.nixosModule];
+        modules = [./nixos/desktop/configuration.nix];
       };
     };
 
@@ -60,7 +52,7 @@
       "vasilis@laptopUni" = home-manager.lib.homeManagerConfiguration {
         pkgs = nixpkgs.legacyPackages.x86_64-linux; # Home-manager requires 'pkgs' instance
         extraSpecialArgs = {inherit inputs outputs;};
-        modules = [./home-manager/vasilis/home.nix ./home-manager/vasilis/laptopUni.nix self.nixosModule];
+        modules = [./home-manager/vasilis/home.nix ./home-manager/vasilis/laptopUni.nix];
       };
       "rizzler@server" = home-manager.lib.homeManagerConfiguration {
         pkgs = nixpkgs.legacyPackages.x86_64-linux;
@@ -70,7 +62,7 @@
       "vasilis@desktop" = home-manager.lib.homeManagerConfiguration {
         pkgs = nixpkgs.legacyPackages.x86_64-linux;
         extraSpecialArgs = {inherit inputs outputs;};
-        modules = [./home-manager/vasilis/home.nix ./home-manager/vasilis/desktop.nix self.nixosModule];
+        modules = [./home-manager/vasilis/home.nix ./home-manager/vasilis/desktop.nix];
       };
     };
   };

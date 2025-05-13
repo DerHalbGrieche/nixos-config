@@ -1,6 +1,7 @@
 {
   pkgs,
   inputs,
+  outputs,
   ...
 }: {
   virtualisation.docker = {
@@ -31,4 +32,7 @@
   environment.systemPackages = [
     pkgs.neovim
   ];
+  nixpkgs = {
+    overlays = builtins.attrValues outputs.overlays;
+  };
 }
