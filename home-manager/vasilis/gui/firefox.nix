@@ -72,6 +72,12 @@
         "browser.tabs.groups.smart.optin" = true;
 
         "sidebar.verticalTabs" = true;
+
+        # Disable built-in password manager
+        "signon.rememberSignons" = false;
+        "signon.autofillForms" = false;
+        "signon.generation.enabled" = false;
+        "signon.management.page.breach-alerts.enabled" = false;
       };
     };
   };
