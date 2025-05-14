@@ -4,6 +4,7 @@
   outputs,
   ...
 }: {
+  imports = [./greetd.nix];
   virtualisation.docker = {
     enable = true;
     rootless.enable = true;
@@ -34,5 +35,9 @@
   ];
   nixpkgs = {
     overlays = builtins.attrValues outputs.overlays;
+  };
+  boot.plymouth.enable = true;
+  boot.loader.grub = {
+    timeoutStyle = "hidden";
   };
 }

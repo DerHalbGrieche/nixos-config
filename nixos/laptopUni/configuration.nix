@@ -9,7 +9,6 @@
   imports = [
     # Include the results of the hardware scan.
     ./hardware-configuration.nix
-    ./greetd.nix
     ../common/default.nix
     #./hyprland.nix
   ];
