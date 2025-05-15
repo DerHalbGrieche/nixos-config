@@ -18,6 +18,7 @@
     enable = true;
     efiSupport = true;
     device = "nodev";
+    configurationLimit = 5;
   };
   boot.loader.efi.canTouchEfiVariables = true;
   services.tailscale.enable = true;
