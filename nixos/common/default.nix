@@ -38,13 +38,17 @@
   };
   boot = {
     consoleLogLevel = 0;
-    initrd.verbose = false;
+    initrd = {
+      verbose = false;
+      systemd.enable = true;
+    };
     kernelParams = [
       "quiet"
       "splash"
       "boot.shell_on_fail"
       "udev.log_priority=3"
       "rd.systemd.show_status=auto"
+      "plymouth.use-simpledrm"
     ];
     plymouth = {
       enable = true;
@@ -60,9 +64,12 @@
       grub = {
         timeoutStyle = "hidden";
         backgroundColor = null;
-        gfxpayloadEfi = "text";
+        # gfxpayloadEfi = "text";
         splashImage = null;
       };
+    };
+    systemd.services.plymouth-quit = {
+      serviceConfig.ExecStartPre = "${pkgs.coreutils}/bin/sleep 5";
     };
   };
 }
