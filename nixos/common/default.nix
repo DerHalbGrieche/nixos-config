@@ -36,8 +36,33 @@
   nixpkgs = {
     overlays = builtins.attrValues outputs.overlays;
   };
-  boot.plymouth.enable = true;
-  boot.loader.grub = {
-    timeoutStyle = "hidden";
+  boot = {
+    consoleLogLevel = 0;
+    initrd.verbose = false;
+    kernelParams = [
+      "quiet"
+      "splash"
+      "boot.shell_on_fail"
+      "udev.log_priority=3"
+      "rd.systemd.show_status=auto"
+    ];
+    plymouth = {
+      enable = true;
+      theme = "motion";
+      themePackages = with pkgs; [
+        (adi1090x-plymouth-themes.override {
+          selected_themes = ["motion"];
+        })
+      ];
+    };
+    loader = {
+      timeout = 0;
+      grub = {
+        timeoutStyle = "hidden";
+        backgroundColor = null;
+        gfxpayloadEfi = "text";
+        splashImage = null;
+      };
+    };
   };
 }
