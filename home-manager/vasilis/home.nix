@@ -84,6 +84,7 @@
     enable = true;
     shellAliases = {
       ssh = "kitten ssh";
+      arun = ", appimage-run";
     };
   };
   xdg.enable = true;

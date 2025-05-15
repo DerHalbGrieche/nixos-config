@@ -48,10 +48,10 @@
     ];
     plymouth = {
       enable = true;
-      theme = "motion";
+      theme = "lone";
       themePackages = with pkgs; [
         (adi1090x-plymouth-themes.override {
-          selected_themes = ["motion"];
+          selected_themes = ["lone"];
         })
       ];
     };
