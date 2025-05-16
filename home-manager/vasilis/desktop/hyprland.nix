@@ -65,6 +65,7 @@ in {
       ];
       bind =
         [
+          "$mod, W, exec, pkill -SIGUSR1 waybar"
           "$mod, T, exec, kitty"
           "$mod, V, exec, cliphist list | rofi -dmenu | cliphist decode | wl-copy"
           "$mod, L, exec, hyprlock"

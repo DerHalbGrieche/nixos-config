@@ -5,25 +5,22 @@
     settings = {
       primary = {
         layer = "top";
-        margin = "5";
-        spacing = 5;
-        modules-left = ["custom/home" "hyprland/workspaces" "custom/bitcoin"];
-        modules-right = ["cpu" "memory" "wireplumber" "custom/notifications" "tray" "battery" "custom/logout"];
-        modules-center = ["clock"];
+        margin = "1";
+        spacing = 1;
+        modules-left = ["custom/home" "clock"];
+        modules-right = ["group/expand" "custom/logout"];
+        modules-center = ["hyprland/workspaces"];
 
         #Module Config
         "hyprland/workspaces" = {
-          "format" = "{id}: {windows}";
-          "window-rewrite" = {
-            "class<vesktop>" = "";
-            "class<code>" = "";
-            "class<firefox>" = "";
-            "class<alacritty>" = "";
-            "class<nemo>" = "";
-            "class<steam>" = "";
-            "class<org.qutebrowser.qutebrowser>" = "";
-            "class<kitty>" = "";
-            "class<spotify>" = "";
+          "format" = "{icon}";
+          "format-icons" = {
+            "active" = "🟢";
+            "default" = "⚪";
+            "empty" = "⚫";
+          };
+          "persisten-workspaces" = {
+            "*" = [1 2 3 4 5];
           };
         };
         "clock" = {
@@ -62,6 +59,19 @@
         "custom/notifications" = {
           "format" = "🔔";
           "on-click" = "swaync-client -op";
+        };
+        "group/expand" = {
+          "orientation" = "horizontal";
+          "drawer" = {
+            "transition-duration" = 600;
+            "transition-to-left" = true;
+            "click-to-reveal" = true;
+          };
+          "modules" = ["custom/expand" "cpu" "memory" "wireplumber" "custom/notifications" "tray" "battery"];
+        };
+        "custom/expand" = {
+          "tooltip" = false;
+          "format" = "🍔";
         };
       };
     };
