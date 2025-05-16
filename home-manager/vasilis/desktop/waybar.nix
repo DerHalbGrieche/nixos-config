@@ -7,22 +7,12 @@
         layer = "top";
         margin = "1";
         spacing = 1;
-        modules-left = ["custom/home" "clock"];
+        modules-left = ["custom/home" "hyprland/workspaces"];
         modules-right = ["group/expand" "custom/logout"];
-        modules-center = ["hyprland/workspaces"];
+        modules-center = ["clock"];
 
         #Module Config
-        "hyprland/workspaces" = {
-          "format" = "{icon}";
-          "format-icons" = {
-            "active" = "🟢";
-            "default" = "⚪";
-            "empty" = "⚫";
-          };
-          "persisten-workspaces" = {
-            "*" = [1 2 3 4 5];
-          };
-        };
+
         "clock" = {
           "interval" = 1;
           "tooltip" = false;
