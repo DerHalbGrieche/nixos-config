@@ -61,7 +61,7 @@
         };
         "custom/expand" = {
           "tooltip" = false;
-          "format" = "🍔";
+          "format" = "🗄️";
         };
       };
     };
