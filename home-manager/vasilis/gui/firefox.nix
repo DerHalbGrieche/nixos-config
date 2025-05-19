@@ -9,7 +9,7 @@
       BlockAboutConfig = true;
       DefaultDownloadDirectory = "\${home}/Downloads";
       BlockAboutProfiles = true;
-      DisableFireefoxAccounts = true;
+      DisableFirefoxAccounts = true;
       DisableTelemetry = true;
       DisablePocket = true;
     };

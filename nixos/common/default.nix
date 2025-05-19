@@ -68,8 +68,8 @@
         splashImage = null;
       };
     };
-    systemd.services.plymouth-quit = {
-      serviceConfig.ExecStartPre = "${pkgs.coreutils}/bin/sleep 5";
-    };
+  };
+  systemd.services.plymouth-quit = {
+    serviceConfig.ExecStartPre = "${pkgs.coreutils}/bin/sleep 5";
   };
 }
