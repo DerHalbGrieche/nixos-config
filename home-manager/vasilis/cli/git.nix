@@ -4,7 +4,12 @@
     package = pkgs.gitAndTools.gitFull;
 
     userName = "Vasilis Manetas";
-    userEmail = "vasilis12.manetas@gmail.com";
-    extraConfig = {init.defaultBranch = "main";};
+    userEmail = "vasilis.manetas@fh-erfurt.de";
+    diff-so-fancy.enable = true;
+    extraConfig = {
+      init.defaultBranch = "main";
+      pull.rebase = true;
+      fetch.prune = true;
+    };
   };
 }
