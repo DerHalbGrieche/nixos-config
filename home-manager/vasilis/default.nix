@@ -11,6 +11,7 @@
     ./gui/firefox.nix
     # ./gui/vscode.nix
     ./gui/kitty.nix
+    ./gui/spotify.nix
     ./desktop/hyprland.nix
     ./desktop/hyprpaper.nix
     ./desktop/hypridle.nix

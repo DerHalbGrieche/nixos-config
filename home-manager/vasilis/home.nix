@@ -56,7 +56,6 @@
     vesktop
     comma
     mpv
-    spotify
     font-awesome
     localsend
     nemo-with-extensions
