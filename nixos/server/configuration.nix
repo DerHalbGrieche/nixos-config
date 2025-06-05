@@ -5,11 +5,9 @@
   config,
   pkgs,
   lib,
+  outputs,
   ...
-}: let
-  # Define the ports you want to funnel
-  funnelPorts = [22 81];
-in {
+}: {
   imports = [
     # Include the results of the hardware scan.
     ./hardware-configuration.nix
@@ -23,25 +21,6 @@ in {
   };
 
   services.tailscale.enable = true;
-
-  # Define a systemd service for Tailscale Funnel
-  systemd.services.tailscale-funnel = {
-    description = "Tailscale Funnel for Multiple Ports";
-    after = ["network.target" "tailscaled.service"];
-    wants = ["network.target" "tailscaled.service"];
-
-    # Script to run tailscale funnel for each port
-    serviceConfig = {
-      ExecStart = "${pkgs.bash}/bin/bash -c '${lib.concatStringsSep " && " (map (port: "${pkgs.tailscale}/bin/tailscale funnel ${toString port}") funnelPorts)}'";
-      Restart = "on-failure";
-      RestartSec = "5s";
-      User = "root";
-    };
-
-    # Ensure the service is enabled and starts automatically
-    wantedBy = ["multi-user.target"];
-    enable = true;
-  };
 
   services.logind.powerKey = "ignore";
   security.sudo.wheelNeedsPassword = false;
@@ -57,8 +36,11 @@ in {
   networking.networkmanager.enable = true;
   networking.firewall = {
     enable = true;
-    allowedTCPPorts = [22];
-    allowedUDPPorts = [22];
+    allowedTCPPorts = [22 7777 8888];
+    allowedUDPPorts = [22 7777 8888];
+  };
+  nixpkgs = {
+    overlays = builtins.attrValues outputs.overlays;
   };
 
   # Set your time zone.
@@ -66,7 +48,10 @@ in {
 
   # Select internationalisation properties.
   i18n.defaultLocale = "en_US.UTF-8";
-
+  virtualisation.docker = {
+    enable = true;
+    rootless.enable = true;
+  };
   i18n.extraLocaleSettings = {
     LC_ADDRESS = "de_DE.UTF-8";
     LC_IDENTIFICATION = "de_DE.UTF-8";
@@ -141,6 +126,7 @@ in {
     git
     htop
     home-manager
+    neovim
   ];
 
   services.openssh = {
