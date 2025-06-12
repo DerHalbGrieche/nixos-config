@@ -25,6 +25,7 @@
   services.tailscale.enable = true;
   services.logind.powerKey = "ignore";
   security.sudo.wheelNeedsPassword = false;
+  virtualisation.waydroid.enable = true;
 
   networking.hostName = "vasilispc"; # Define your hostname.
   # networking.wireless.enable = true;  # Enables wireless support via wpa_supplicant.
@@ -119,8 +120,10 @@
   # services.displayManager.autoLogin.user = "vasilis";
 
   # Install firefox.
-  programs.firefox.enable = true;
 
+  services.udev.extraRules = ''
+    ACTION=="add", SUBSYSTEM=="usb", ATTR{idVendor}=="2357", ATTR{idProduct}=="0604", ATTR{power/wakeup}="enabled"
+  '';
   # Allow unfree packages
 
   # List packages installed in system profile. To search, run:
